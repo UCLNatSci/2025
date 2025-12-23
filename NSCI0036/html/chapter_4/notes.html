@@ -1,0 +1,867 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lists and Strings &#8212; Scientific Computing Workbook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_4/notes';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Further Arrays" href="../chapter_5/notes.html" />
+    <link rel="prev" title="Functions" href="../chapter_3/notes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/nsci0036_logo.png" class="logo__image only-light" alt="Scientific Computing Workbook - Home"/>
+    <script>document.write(`<img src="../_static/nsci0036_logo.png" class="logo__image only-dark" alt="Scientific Computing Workbook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programming with Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1/notes.html">Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2/notes.html">Arrays and Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3/notes.html">Functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lists and Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5/notes.html">Further Arrays</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_4/notes.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lists and Strings</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#traversing-lists">Traversing Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-elements-to-a-list">Appending Elements to a List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-a-list-element">Finding a List Element</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-variables">String Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-concatenation">String Concatenation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-between-strings-and-numbers">Converting between strings and numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">String Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-and-characters">Strings and Characters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-lists-and-strings">Slicing Lists and Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-sequences">Escape Sequences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-line-strings">Multi-line Strings</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lists-and-strings">
+<h1>Lists and Strings<a class="headerlink" href="#lists-and-strings" title="Link to this heading">#</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">What you’ll learn</p>
+<ul class="simple">
+<li><p>How to store a sequence of data in a <strong>list</strong></p></li>
+<li><p>How to traverse lists</p></li>
+<li><p>How to add and remove elements</p></li>
+<li><p>How find elements</p></li>
+<li><p>How to store a sequence of character data in a <strong>string</strong></p></li>
+<li><p>How to extract substrings by slicing</p></li>
+<li><p>How to use string methods</p></li>
+</ul>
+</div>
+<section id="lists">
+<h2>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">list</span></code> is a Python data type that stores a sequence of values. For example, suppose we have the following data representing five years’ population data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">populations</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">206</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">populations</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Each element in a list has an <strong>index</strong> which identifies its position. We can access a list element by following the variable name with square brackets and the index:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">initial_pop</span> <span class="o">=</span> <span class="n">populations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">year_3_pop</span> <span class="o">=</span> <span class="n">populations</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initial population:&quot;</span><span class="p">,</span> <span class="n">initial_pop</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Population in year 3:&quot;</span><span class="p">,</span> <span class="n">year_3_pop</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>Likewise, we can update individual list elements. Suppose we would like to change the value of the 3rd element:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">populations</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># Assign the value 100 to element at index 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">populations</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Any data type can be stored in a list, including strings:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Manchester&quot;</span><span class="p">,</span> <span class="s2">&quot;Liverpool&quot;</span><span class="p">,</span> <span class="s2">&quot;Sheffield&quot;</span><span class="p">,</span> <span class="s2">&quot;Stoke-on-Trent&quot;</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">cities</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Lists are indexed starting from <code class="docutils literal notranslate"><span class="pre">0</span></code>. If a list has <code class="docutils literal notranslate"><span class="pre">n</span></code> elements, then the last element is at index <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p></li>
+<li><p>Square brackets are used for two distinct purposes: for list creation: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">4]</span></code>, and list element access: <code class="docutils literal notranslate"><span class="pre">x[2]</span></code>.</p></li>
+</ul>
+</div>
+</section>
+<section id="traversing-lists">
+<h2>Traversing Lists<a class="headerlink" href="#traversing-lists" title="Link to this heading">#</a></h2>
+<p>There are two ways of accessing all elements of a list. The first way is to use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to loop over all index values. We use the Python function <code class="docutils literal notranslate"><span class="pre">len</span></code> to determine the number of elements in the list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">populations</span><span class="p">)</span> <span class="c1"># get the number of elements in the list</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="c1"># loop over index values 0 to n - 1</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">populations</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1"># Access element at index i</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;population:&quot;</span><span class="p">,</span> <span class="n">pop</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you don’t need index values, you can loop over the individual elements of the list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">pop</span> <span class="ow">in</span> <span class="n">populations</span><span class="p">:</span> <span class="c1"># loop over all elements of the list</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Population:&quot;</span><span class="p">,</span> <span class="n">pop</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="appending-elements-to-a-list">
+<h2>Appending Elements to a List<a class="headerlink" href="#appending-elements-to-a-list" title="Link to this heading">#</a></h2>
+<p>After a list is created, we can add items to it using the <code class="docutils literal notranslate"><span class="pre">append</span></code> method. Suppose that we have recorded the species population for the next year as <code class="docutils literal notranslate"><span class="pre">420</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">populations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">420</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">populations</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A common pattern for list creation is to start with an empty list, then use a loop to append one element at a time. The following example creates a list of the first 10 square numbers.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="finding-a-list-element">
+<h2>Finding a List Element<a class="headerlink" href="#finding-a-list-element" title="Link to this heading">#</a></h2>
+<p>If you want to know the index of an element in a list, use the <code class="docutils literal notranslate"><span class="pre">index</span></code> method. <code class="docutils literal notranslate"><span class="pre">string.index(s)</span></code> returns the first element equal to argument <code class="docutils literal notranslate"><span class="pre">s</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ABC&quot;</span><span class="p">,</span> <span class="s2">&quot;DEF&quot;</span><span class="p">,</span> <span class="s2">&quot;GHI&quot;</span><span class="p">,</span> <span class="s2">&quot;JKL&quot;</span><span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;GHI&quot;</span><span class="p">)</span> <span class="c1"># Find the index of the first element equal to &quot;GHI&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="strings">
+<h2>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h2>
+<p>In biology, an RNA sequence consists of a chain of the nucleotides Adenine, Uracil, Cytosine and Guanine in a specific order. We can represent an RNA sequence using the four letters <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">U</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code> and <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
+<aside class="sidebar">
+<p class="sidebar-title">Amino Acid Translation Table</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Amino Acid</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p>codons</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Leucine</p></td>
+<td><p>L</p></td>
+<td><p>UUA, UUG, CUU, CUC, CUA, CUG</p></td>
+</tr>
+<tr class="row-odd"><td><p>Methionine</p></td>
+<td><p>M</p></td>
+<td><p>AUG</p></td>
+</tr>
+<tr class="row-even"><td><p>Arginine</p></td>
+<td><p>R</p></td>
+<td><p>AGA, AGG, CGA, CGU, CGG, CGC</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aspartic Acid</p></td>
+<td><p>D</p></td>
+<td><p>GAU, GAC</p></td>
+</tr>
+<tr class="row-even"><td><p>(stop)</p></td>
+<td><p>.</p></td>
+<td><p>UGA</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</aside>
+<p>In the body, the RNA sequence is used to produce a protein in a process called translation. The sequence is first divided into three character subsequences termed ‘codons’. For example, the 15 character RNA sequence <code class="docutils literal notranslate"><span class="pre">AUGAGACUCUGAGAC</span></code> is divided into the codons <code class="docutils literal notranslate"><span class="pre">AUG</span></code>, <code class="docutils literal notranslate"><span class="pre">AGA</span></code>, <code class="docutils literal notranslate"><span class="pre">CUC</span></code>, <code class="docutils literal notranslate"><span class="pre">UGA</span></code>, and <code class="docutils literal notranslate"><span class="pre">GAC</span></code>.</p>
+<p>Each of the codons identifies a specific amino acid, as shown in the partial amino acid translation table on the right. The RNA sequence <code class="docutils literal notranslate"><span class="pre">AUGAGACUCUGAGAC</span></code> would therefore be translated by the body into the amino acid sequence <code class="docutils literal notranslate"><span class="pre">methionine</span></code>, <code class="docutils literal notranslate"><span class="pre">arginine</span></code>, <code class="docutils literal notranslate"><span class="pre">leucine</span></code>, <code class="docutils literal notranslate"><span class="pre">(stop)</span></code>, <code class="docutils literal notranslate"><span class="pre">aspartic</span> <span class="pre">acid</span></code>. Using the abbreviated one-letter characters, this could be written as <code class="docutils literal notranslate"><span class="pre">MRL.D</span></code>.</p>
+<p>Finally, the body chains together these amino acids into a protein. The stop codon represents the end of the chain, so the RNA sequence would be translated into a protein comprising a chain of three amino acids <code class="docutils literal notranslate"><span class="pre">methionine-arginine-leucine</span></code>.</p>
+<div class="admonition-rna-translation admonition">
+<p class="admonition-title">RNA Translation</p>
+<ol class="arabic simple">
+<li><p>RNA sequence: <code class="docutils literal notranslate"><span class="pre">AUGAGACUCUGAGAC</span></code></p></li>
+<li><p>Codons:  <code class="docutils literal notranslate"><span class="pre">AUG</span></code> <code class="docutils literal notranslate"><span class="pre">AGA</span></code> <code class="docutils literal notranslate"><span class="pre">CUC</span></code> <code class="docutils literal notranslate"><span class="pre">UGA</span></code> <code class="docutils literal notranslate"><span class="pre">GAC</span></code></p></li>
+<li><p>Amino Acids: <code class="docutils literal notranslate"><span class="pre">MRL.D</span></code></p></li>
+<li><p>Protein sequence: <code class="docutils literal notranslate"><span class="pre">MRL</span></code></p></li>
+</ol>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Bioinformatics</p>
+<p>Bioinformatics is the application of tools of computation and analysis to the capture and interpretation of biological data. One of the main applications of bioinformatics is the analysis of genome sequence data, such as that undertaken by the Human Genome Project.</p>
+</div>
+<p>we’ll now see how we can implement this procedure programmatically. In Python, a sequence of character data is termed a <strong>string</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rna_seq</span> <span class="o">=</span> <span class="s2">&quot;AUGAGACUCUGAGAC&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RNA sequence:&quot;</span><span class="p">,</span> <span class="n">rna_seq</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>First, let’s write a function <code class="docutils literal notranslate"><span class="pre">translate</span></code> which takes a three letter string and returns a single letter representing the corresponding amino acid.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">translate</span><span class="p">(</span><span class="n">codon</span><span class="p">):</span>
+    <span class="n">codon_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;UUA&quot;</span><span class="p">,</span> <span class="s2">&quot;UUG&quot;</span><span class="p">,</span> <span class="s2">&quot;CUU&quot;</span><span class="p">,</span> <span class="s2">&quot;CUC&quot;</span><span class="p">,</span> <span class="s2">&quot;CUA&quot;</span><span class="p">,</span> <span class="s2">&quot;CUG&quot;</span><span class="p">,</span> <span class="s2">&quot;AUG&quot;</span><span class="p">,</span> <span class="s2">&quot;AGA&quot;</span><span class="p">,</span> <span class="s2">&quot;AGG&quot;</span><span class="p">,</span> <span class="s2">&quot;CGA&quot;</span><span class="p">,</span> <span class="s2">&quot;CGU&quot;</span><span class="p">,</span> <span class="s2">&quot;CGG&quot;</span><span class="p">,</span> <span class="s2">&quot;CGC&quot;</span><span class="p">,</span> <span class="s2">&quot;GAU&quot;</span><span class="p">,</span> <span class="s2">&quot;GAC&quot;</span><span class="p">,</span> <span class="s2">&quot;UAA&quot;</span><span class="p">,</span> <span class="s2">&quot;UAG&quot;</span><span class="p">,</span> <span class="s2">&quot;UGA&quot;</span><span class="p">]</span>
+    <span class="n">amino_acids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span>  <span class="s2">&quot;.&quot;</span><span class="p">,</span>  <span class="s2">&quot;.&quot;</span><span class="p">]</span>
+    
+    <span class="n">i</span> <span class="o">=</span> <span class="n">codon_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">codon</span><span class="p">)</span>
+    <span class="n">aa</span> <span class="o">=</span> <span class="n">amino_acids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">aa</span>
+
+
+<span class="c1"># Test the function using the CGG codon</span>
+<span class="n">codon</span> <span class="o">=</span> <span class="s2">&quot;CGG&quot;</span>
+<span class="n">aa</span> <span class="o">=</span> <span class="n">translate</span><span class="p">(</span><span class="s2">&quot;CGG&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Codon:&quot;</span><span class="p">,</span> <span class="n">codon</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Amino acid:&quot;</span><span class="p">,</span> <span class="n">aa</span><span class="p">)</span>
+   
+</pre></div>
+</div>
+<p>The list <code class="docutils literal notranslate"><span class="pre">codon_list</span></code> contains the three letter codons, and the list <code class="docutils literal notranslate"><span class="pre">amino_acids</span></code> contains the correspdonding single-letter amino acid abbreviations. Translating from codon to amino acid is simply a case of finding the index position of the codon in <code class="docutils literal notranslate"><span class="pre">codon_list</span></code> and identifying the character in the same position in <code class="docutils literal notranslate"><span class="pre">amino_acids</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">codon_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">codon</span><span class="p">)</span>
+<span class="n">aa</span> <span class="o">=</span> <span class="n">amino_acids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">i</span></code> is an integer represnting the index of the string <code class="docutils literal notranslate"><span class="pre">codon</span></code> in <code class="docutils literal notranslate"><span class="pre">codon_list</span></code>.</p>
+<div class="seealso admonition">
+<p class="admonition-title">Finding items in a list</p>
+<p>See the previous section <strong>Lists and Plotting</strong> for how to find items in a list.</p>
+</div>
+<p>Next, we would like to split the string <code class="docutils literal notranslate"><span class="pre">rna_seq</span></code> into three-character codons, then use our function to determine the amino acid for each.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rna_seq</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="n">codon</span> <span class="o">=</span> <span class="n">rna_seq</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="n">codon</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>First we use the <code class="docutils literal notranslate"><span class="pre">len</span></code> function to determine the number of characters in the string <code class="docutils literal notranslate"><span class="pre">rna_seq</span></code>. Next we generate a loop from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">n</span></code> in steps of <code class="docutils literal notranslate"><span class="pre">3</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>The expression <code class="docutils literal notranslate"><span class="pre">rna_seq[i:i+3]</span></code> extracts the a 3-character substring from <code class="docutils literal notranslate"><span class="pre">rna_seq</span></code> begining at the character at index <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
+<p>Finally, what if we’d like to stop processing the sequence once we reach the ‘stop’ codon? Python has a useful keyword <code class="docutils literal notranslate"><span class="pre">break</span></code> which allows us to do exactly that:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rna_seq</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="n">codon</span> <span class="o">=</span> <span class="n">rna_seq</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">codon</span> <span class="o">==</span> <span class="s2">&quot;UGA&quot;</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="n">codon</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>As soon as the <code class="docutils literal notranslate"><span class="pre">break</span></code> keyword is reached, the enclosing <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is exited, even if this means aborting the loop early.</p>
+</section>
+<section id="string-variables">
+<h2>String Variables<a class="headerlink" href="#string-variables" title="Link to this heading">#</a></h2>
+<p>A string is data type representing character data. In Python, string literals are surrounded either by double quote <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> or single quote <code class="docutils literal notranslate"><span class="pre">'</span></code> characters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">greeting_start</span> <span class="o">=</span> <span class="s2">&quot;Season&#39;s&quot;</span>
+<span class="n">greeting_end</span> <span class="o">=</span> <span class="s1">&#39;greetings&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">greeting_start</span><span class="p">,</span> <span class="n">greeting_end</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="string-concatenation">
+<h2>String Concatenation<a class="headerlink" href="#string-concatenation" title="Link to this heading">#</a></h2>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">+</span></code> symbol to <strong>concatentate</strong> strings</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">greeting</span> <span class="o">=</span> <span class="n">greeting_start</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">greeting_end</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But it is not possible to concatentate a string and a number:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="o">=</span> <span class="n">greeting</span> <span class="o">+</span> <span class="mi">55</span>
+</pre></div>
+</div>
+</section>
+<section id="converting-between-strings-and-numbers">
+<h2>Converting between strings and numbers<a class="headerlink" href="#converting-between-strings-and-numbers" title="Link to this heading">#</a></h2>
+<p>Functions <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">float</span></code> are available to convert between strings and other data types.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert from integer to string</span>
+<span class="nb">id</span> <span class="o">=</span> <span class="mi">1729</span>
+<span class="n">new_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_NEW&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_id</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert from string to floating-point number</span>
+<span class="n">price</span> <span class="o">=</span> <span class="s2">&quot;12.99&quot;</span>
+<span class="n">total_price</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">price</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total_price</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="string-methods">
+<h2>String Methods<a class="headerlink" href="#string-methods" title="Link to this heading">#</a></h2>
+<p>A string is an <strong>object</strong>, which is a data type with <strong>methods</strong> directly attached with it which can be called similarly to calling a function. The <code class="docutils literal notranslate"><span class="pre">upper</span></code> method converts a string to upper case, and <code class="docutils literal notranslate"><span class="pre">lower</span></code> to lowercase:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Jeremy Bentham&quot;</span>
+<span class="n">name_uppercase</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name_uppercase</span><span class="p">)</span>
+<span class="n">name_lowercase</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name_lowercase</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Other useful methods are <code class="docutils literal notranslate"><span class="pre">split</span></code>, <code class="docutils literal notranslate"><span class="pre">join</span></code> and <code class="docutils literal notranslate"><span class="pre">trim</span></code>. <code class="docutils literal notranslate"><span class="pre">split</span></code> splits the string into individual words and returns them as a list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The time has come&quot;</span>
+<span class="n">word_list</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">join</span></code> does the reverse, combining a list of strings into a single string. <code class="docutils literal notranslate"><span class="pre">s1.join(word_list)</span></code> joins the strings in ``</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">word_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">strip</span></code> removes any white space characters (spaces, tabs or newlines) at the start or end of the string:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;  too much space!   &quot;</span>
+<span class="n">text2</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="strings-and-characters">
+<h2>Strings and Characters<a class="headerlink" href="#strings-and-characters" title="Link to this heading">#</a></h2>
+<p>A string is composed of a sequence of characters, and most of the operations that can be performed on lists can also be performed on strings. For example, individual characters can be accessed using square brackets enclosing the index position.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Natural Sciences&quot;</span>
+<span class="c1"># first character is at index 0</span>
+<span class="n">first_initial</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># last character is at index -1</span>
+<span class="n">final_character</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_initial</span><span class="p">,</span> <span class="n">final_character</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">len</span></code> function to find the length of a string.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Mighty&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An important difference between lists and strings: whereas it is possible to change the value of an an individual list item, it is <strong>not</strong> possible to change an indivdual string character. We say that strings are <strong>immutable</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># this is OK</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;ABC&quot;</span>
+<span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span> <span class="c1"># this will result in an error</span>
+</pre></div>
+</div>
+<p>Likewise, it is not possible to append a character to a string. Instead, use string concatenation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">)</span> <span class="c1"># Error</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">&quot;D&quot;</span> <span class="c1"># This is OK</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="slicing-lists-and-strings">
+<h2>Slicing Lists and Strings<a class="headerlink" href="#slicing-lists-and-strings" title="Link to this heading">#</a></h2>
+<p>Given a list or string, we can access a single element using square brackets:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If we want to access a sublist, we can use array <strong>slicing</strong>. Given integers <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">x[a:b]</span></code> returns a new list which contains the elements of <code class="docutils literal notranslate"><span class="pre">x</span></code> from index <code class="docutils literal notranslate"><span class="pre">a</span></code> to <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-</span> <span class="pre">1</span></code> (i.e. including element <code class="docutils literal notranslate"><span class="pre">a</span></code> but excluding element <code class="docutils literal notranslate"><span class="pre">b</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">x[a:b:c]</span></code> returns a list containing items <code class="docutils literal notranslate"><span class="pre">a</span></code> to <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-</span> <span class="pre">1</span></code> with a step size of <code class="docutils literal notranslate"><span class="pre">c</span></code> (this is very similar to the <code class="docutils literal notranslate"><span class="pre">range</span></code> function),</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<p>Natural Sciences modules are identified by a 8 character code consisting of <code class="docutils literal notranslate"><span class="pre">NSCI</span></code> followed by a four digit number. The following paragraph of text contains Natural Sciences module codes mixed up with other data. We will write Python code to extract a list of Module codes from the text.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Surrounded NSCI0007 me occasional pianoforte NSCI0011 alteration unaffected impossible ye. For saw half than cold.  arrived adapted. Numerous ladyship so raillery humoured goodness received an. So NSCI0004 formal length my highly NSCI0005 afford oh. Tall neat he make or at dull ye.&quot;</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># determine the number of characters in the text</span>
+<span class="n">module_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># create an empty list</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="c1"># i loops of all index positions in text</span>
+    <span class="k">if</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;NSCI&quot;</span><span class="p">:</span> <span class="c1"># exctact a 4 character substring and check if it is equal to &quot;NSCI&quot;</span>
+        <span class="n">module_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">8</span><span class="p">])</span> <span class="c1"># add 8 characters to the list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">module_list</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>String comparison is <strong>case-sensitive</strong> so <code class="docutils literal notranslate"><span class="pre">&quot;S&quot;</span> <span class="pre">==</span> <span class="pre">&quot;s&quot;</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p>Remember to use a double equals to check for equality.</p></li>
+</ul>
+</div>
+</section>
+<section id="escape-sequences">
+<h2>Escape Sequences<a class="headerlink" href="#escape-sequences" title="Link to this heading">#</a></h2>
+<p>If you want to include special characters in a string, use an <strong>escape sequence</strong>. Precede the character you want to want to escape by a backslash character <code class="docutils literal notranslate"><span class="pre">\</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quote</span> <span class="o">=</span> <span class="s1">&#39;&quot;The time has come&quot;, the Walrus said.&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">quote</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quote</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">The time has come</span><span class="se">\&quot;</span><span class="s2">, the Walrus said.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">quote</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This can also be used to include a backslash character in the string.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quote</span> <span class="o">=</span> <span class="s2">&quot;A</span><span class="se">\\</span><span class="s2">B&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">quote</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A very useful excape sequence is <code class="docutils literal notranslate"><span class="pre">\n</span></code>, which denotes a <strong>newline</strong> character.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A</span><span class="se">\n</span><span class="s2">AB</span><span class="se">\n</span><span class="s2">ABC&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="multi-line-strings">
+<h2>Multi-line Strings<a class="headerlink" href="#multi-line-strings" title="Link to this heading">#</a></h2>
+<p>String literals can span multiple lines, using triple-quotes: <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>…<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">'''</span></code>…<code class="docutils literal notranslate"><span class="pre">'''</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">long_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Twas the night before Christmas,</span>
+<span class="s2">when all through the house</span>
+<span class="s2">Not a creature was stirring,</span>
+<span class="s2">not even a mouse.&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">long_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../chapter_3/notes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Functions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../chapter_5/notes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Further Arrays</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#traversing-lists">Traversing Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-elements-to-a-list">Appending Elements to a List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-a-list-element">Finding a List Element</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-variables">String Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-concatenation">String Concatenation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-between-strings-and-numbers">Converting between strings and numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">String Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-and-characters">Strings and Characters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-lists-and-strings">Slicing Lists and Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-sequences">Escape Sequences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-line-strings">Multi-line Strings</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Natural Sciences
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

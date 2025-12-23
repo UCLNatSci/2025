@@ -1,0 +1,848 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Workshop 1: Fundamentals &#8212; Scientific Computing Workbook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_1/workshop';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Workshop 1: Solutions" href="workshop_solutions.html" />
+    <link rel="prev" title="Fundamentals" href="notes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/nsci0036_logo.png" class="logo__image only-light" alt="Scientific Computing Workbook - Home"/>
+    <script>document.write(`<img src="../_static/nsci0036_logo.png" class="logo__image only-dark" alt="Scientific Computing Workbook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programming with Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="notes.html">Fundamentals</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Workshop 1: Fundamentals</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="workshop_solutions.html">Workshop 1: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_2/notes.html">Arrays and Plotting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_2/workshop.html">Workshop 2: Modelling Change</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2/workshop_solutions.html">Workshop 2: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_2/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_3/notes.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_3/workshop.html">Workshop 3: Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_3/workshop_solutions.html">Workshop 3: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_4/notes.html">Lists and Strings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_4/workshop.html">Workshop 4: Lists and Strings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_4/workshop_solutions.html">Workshop 4: Solutions</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_5/notes.html">Further Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_5/workshop.html">Workshop 4: Modelling Space</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5/workshop_solutions.html">Workshop 4: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/chapter_1/workshop.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_1/workshop.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/chapter_1/workshop.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Workshop 1: Fundamentals</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radioactive-decay">Radioactive Decay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-collatz-problem">The Collatz Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops">Nested Loops</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="workshop-1-fundamentals">
+<h1>Workshop 1: Fundamentals<a class="headerlink" href="#workshop-1-fundamentals" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>We’ll start with a simple example of a Python program which simulates the growth in population of a colony of bacteria. Suppose we start with 100 cells and the population doubles every hour. How many hours will it take to reach a population of 10000 cells?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="k">while</span> <span class="n">pop</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="p">:</span>
+    <span class="c1"># double the population</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">pop</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+400
+800
+1600
+3200
+6400
+12800
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s examine each line in turn. First, we define a <strong>variable</strong> <code class="docutils literal notranslate"><span class="pre">pop</span></code> and set its value to 100:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+<p>Then we define a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. A <code class="docutils literal notranslate"><span class="pre">while</span></code> loop repeats a section of code while the specified condition is true:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">pop</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>The code in the indented block below this line is then executed repeatedly. The line <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">double</span> <span class="pre">the</span> <span class="pre">population</span></code> is a comment and is ignored by the Python interpreter. Next, multiply <code class="docutils literal notranslate"><span class="pre">pop</span></code> by 2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">pop</span> <span class="o">=</span> <span class="n">pop</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>Then <code class="docutils literal notranslate"><span class="pre">print</span></code> the value of <code class="docutils literal notranslate"><span class="pre">pop</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="nb">print</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Execution terminates once the condition <code class="docutils literal notranslate"><span class="pre">pop</span> <span class="pre">&lt;</span> <span class="pre">1000</span></code> becomes false.</p>
+<p>When we run the code, we can see that it prints 7 values, so it must take 7 hours for the population to exceed 10000. But let’s adapt the code so that it prints this number. We’ll need to introduce a second variable to keep track of the number of hours:</p>
+<div class="exercise admonition" id="exercise_1_6">
+
+<p class="admonition-title"><span class="caption-number">Exercise 7 </span></p>
+<section id="exercise-content">
+<p>Replace the two comments in the code below so that it correctly prints the number of hours.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="c1"># set i to zero</span>
+<span class="k">while</span> <span class="n">pop</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="p">:</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">pop</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="c1"># increase i by one</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of hours:&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</div>
+<p>Finally, suppose the the population growth rate is <span class="math notranslate nohighlight">\(1.02\)</span> rather than <span class="math notranslate nohighlight">\(2\)</span>.</p>
+<div class="exercise admonition" id="exercise_1_7">
+
+<p class="admonition-title"><span class="caption-number">Exercise 8 </span></p>
+<section id="exercise-content">
+<p>Change the code above so that the growth rate is <span class="math notranslate nohighlight">\(1.02\)</span>.</p>
+</section>
+</div>
+<p>Because the growth rate is much slower, we’re getting to an enormous list of numbers. So let’s print it only once every 24 hours instead.</p>
+<div class="exercise admonition" id="exercise_1_8">
+
+<p class="admonition-title"><span class="caption-number">Exercise 9 </span></p>
+<section id="exercise-content">
+<p>Replace the line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">24</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>so that the population size is only displayed every 24 hours.</p>
+</section>
+</div>
+</section>
+<section id="radioactive-decay">
+<h2>Radioactive Decay<a class="headerlink" href="#radioactive-decay" title="Link to this heading">#</a></h2>
+<p>The half-life of a radioactive sample is the time taken for the activity of the sample (measured in Becquerels, Bq) to reduce by one-half. For example, Iodine-131 is a radioisotope with a half-life <span class="math notranslate nohighlight">\(t_\mathrm{half} = 8.02\)</span> days. If a sample of I-131 has an initial activity of  <span class="math notranslate nohighlight">\(5.00 \times 10^{12}~\mathrm{Bq}\)</span> then after <span class="math notranslate nohighlight">\(8.02\)</span> days its activity will be <span class="math notranslate nohighlight">\(2.50 \times 10^{12}~\mathrm{Bq}\)</span>, and after <span class="math notranslate nohighlight">\(16.04\)</span> days its activity will be  <span class="math notranslate nohighlight">\(1.25 \times 10^{12}~\mathrm{Bq}\)</span> and so on.</p>
+<p>In order to model the decay of Iodine-131 we first need to convert the half-life to the daily decay rate, i.e. the proportion of a sample that decays in one day. We can do this using the following formula:</p>
+<div class="math notranslate nohighlight">
+\[r = \left(\frac{1}{2}\right) ^ {1/t_\mathrm{half}}\]</div>
+<div class="exercise admonition" id="exercise_1_9">
+
+<p class="admonition-title"><span class="caption-number">Exercise 10 </span></p>
+<section id="exercise-content">
+<p>Use the formula above to calculate the daily decay rate of Iodine-131.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">half_life</span> <span class="o">=</span> <span class="mf">8.02</span>
+<span class="n">r</span> <span class="o">=</span> <span class="c1"># your calculation </span>
+</pre></div>
+</div>
+</section>
+</div>
+<p>Now let’s suppose we have a sample of I-131 with an initial activity of <span class="math notranslate nohighlight">\(1.67 \times 10^{12}~\mathrm{Bq}\)</span>.</p>
+<div class="exercise admonition" id="exercise_1_10">
+
+<p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
+<section id="exercise-content">
+<p>Write a program which calculates the number of days it takes for the sample to reach an activity of <span class="math notranslate nohighlight">\(10000\)</span> Becquerels. What is the activity after <span class="math notranslate nohighlight">\(8\)</span> days? What value would you expect?</p>
+</section>
+</div>
+<div class="exercise admonition" id="exercise_1_11">
+
+<p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
+<section id="exercise-content">
+<p>Change your code so that it prints the activity of the sample once every 7 days.</p>
+</section>
+</div>
+</section>
+<section id="pseudocode">
+<h2>Pseudocode<a class="headerlink" href="#pseudocode" title="Link to this heading">#</a></h2>
+<p>Even for simple programs, it can be difficult to determine the sequence of Python commands required to correctly produce the desired outcome. One to way to make this process easier is to first write your program in <strong>pseudocode</strong>: human-readable instructions which describe the desired algorithm. The previous example might be expressed in pseudocode as follows:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Pseudocode Example</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="pseudocode docutils">
+<p class="sd-card-text">set r to half to the power 1/8.02<br />
+set activity to 1.67 x 10^12<br />
+set day to 0<br />
+repeat until activity is less than 10000:<br />
+     multiply activity by r<br />
+     increase day by 1<br />
+     if day is divisible by 7:<br />
+         display activity</p>
+</div>
+</div>
+</div>
+<p>There are no strict rules for writing pseudocode - the purpose is to assist you in turning an idea into working code, so you are free to write it in a manner which makes most sense to you. However, the following general rules are recommended.</p>
+<ol class="arabic simple">
+<li><p>One line of pseudocode should translate to one line (possibly two lines) of Python code.</p></li>
+<li><p>Indent lines which are part of a repeated or conditional block.</p></li>
+<li><p>Do not include Python statements.</p></li>
+<li><p>Keep it simple, concise and readable.</p></li>
+</ol>
+<p>Pseudocode is a tool which you can use to help you break down the process of writing a program. When presented with a problem you would typically:</p>
+<ol class="arabic simple">
+<li><p>Examine the problem and determine an algorithm to solve it</p></li>
+<li><p>Write down (using pen and paper) your algorithm in pseudocode</p></li>
+<li><p>Check that your algorithm works by ‘running’ the pseudocode in your head (or with pen and paper)</p></li>
+<li><p>Convert the pseudocode to Python code and check that it works.</p></li>
+</ol>
+</section>
+<section id="the-collatz-problem">
+<h2>The Collatz Problem<a class="headerlink" href="#the-collatz-problem" title="Link to this heading">#</a></h2>
+<p>Given a positive integer <span class="math notranslate nohighlight">\(n\)</span>, the <em>Collatz Operation</em> is defined as follows:</p>
+<ul class="simple">
+<li><p>If the <span class="math notranslate nohighlight">\(n\)</span> is even, divide it by two</p></li>
+<li><p>If the <span class="math notranslate nohighlight">\(n\)</span> is odd, triple it and add one</p></li>
+</ul>
+<p>Repeatedly applying the Collatz Operation results in a sequence of integers which eventually reaches the number 1.</p>
+<p>For example, the <em>Collatz Sequence</em> for <span class="math notranslate nohighlight">\(n = 5\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[5, 16, 8, 4, 2, 1.\]</div>
+<div class="exercise admonition" id="exercise_1_12">
+
+<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
+<section id="exercise-content">
+<p>Using pen and paper, write pseudocode for a program which prints the Collatz Sequence for <span class="math notranslate nohighlight">\(n = 5\)</span>.</p>
+</section>
+</div>
+<div class="exercise admonition" id="exercise_1_13">
+
+<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
+<section id="exercise-content">
+<p>Use your answer to the previous question to write a program which generates the Collatz Sequence for any given positive integer <span class="math notranslate nohighlight">\(n\)</span>. For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># your code to generate the Collatz Sequence</span>
+</pre></div>
+</div>
+<p>should produce the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span>
+<span class="mf">16.0</span>
+<span class="mf">8.0</span>
+<span class="mf">4.0</span>
+<span class="mf">2.0</span>
+<span class="mf">1.0</span>
+</pre></div>
+</div>
+</section>
+</div>
+<p>Given a positive integer <span class="math notranslate nohighlight">\(n\)</span>, define the <em>Collatz Number</em> to be the length of the Collatz Sequence for <span class="math notranslate nohighlight">\(n\)</span>. For example, the Collatz number of 5 is 6.</p>
+<div class="exercise admonition" id="exercise_1_14">
+
+<p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
+<section id="exercise-content">
+<p>Write a program which calculates and prints the Collatz number of a given number <span class="math notranslate nohighlight">\(n\)</span>. For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># your code to generate the Collatz Number</span>
+</pre></div>
+</div>
+<p>should produce the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">Collatz</span> <span class="n">number</span> <span class="n">of</span> <span class="mi">5</span> <span class="ow">is</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</section>
+</div>
+<div class="exercise admonition" id="exercise_1_15">
+
+<p class="admonition-title"><span class="caption-number">Exercise 16 </span> (Challenge)</p>
+<section id="exercise-content">
+<p>Write a program which finds the smallest number <span class="math notranslate nohighlight">\(n\)</span> whose Collatz Number is greater than 200.</p>
+</section>
+</div>
+</section>
+<section id="nested-loops">
+<h2>Nested Loops<a class="headerlink" href="#nested-loops" title="Link to this heading">#</a></h2>
+<p>There are many cases when you want to have iteration happen within an iteration. In this case, we will “nest” our loops –- put one loop inside of another loop.</p>
+<p>See if you can understand what the following code is doing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+12
+123
+1234
+12345
+123456
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="exercise_1_16">
+
+<p class="admonition-title"><span class="caption-number">Exercise 17 </span></p>
+<section id="exercise-content">
+<p>Write a program which uses nested loops to print the following patterns:</p>
+<p>a)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">123456</span>
+<span class="mi">12345</span>
+<span class="mi">1234</span>
+<span class="mi">123</span>
+<span class="mi">12</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<p>b)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">01010</span>
+<span class="mi">10101</span>
+<span class="mi">01010</span>
+<span class="mi">10101</span>
+<span class="mi">01010</span>
+</pre></div>
+</div>
+<p>c)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AAAAAB</span>
+<span class="n">AAAABB</span>
+<span class="n">AAABBB</span>
+<span class="n">AABBBB</span>
+<span class="n">ABBBBB</span>
+<span class="n">BBBBBB</span>
+</pre></div>
+</div>
+</section>
+</div>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="notes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Fundamentals</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="workshop_solutions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Workshop 1: Solutions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radioactive-decay">Radioactive Decay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-collatz-problem">The Collatz Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops">Nested Loops</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Natural Sciences
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

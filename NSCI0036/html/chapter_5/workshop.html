@@ -1,0 +1,860 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Workshop 4: Modelling Space &#8212; Scientific Computing Workbook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_5/workshop';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Workshop 4: Solutions" href="workshop_solutions.html" />
+    <link rel="prev" title="Further Arrays" href="notes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/nsci0036_logo.png" class="logo__image only-light" alt="Scientific Computing Workbook - Home"/>
+    <script>document.write(`<img src="../_static/nsci0036_logo.png" class="logo__image only-dark" alt="Scientific Computing Workbook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programming with Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_1/notes.html">Fundamentals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_1/workshop.html">Workshop 1: Fundamentals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_1/workshop_solutions.html">Workshop 1: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_2/notes.html">Arrays and Plotting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_2/workshop.html">Workshop 2: Modelling Change</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2/workshop_solutions.html">Workshop 2: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_2/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_3/notes.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_3/workshop.html">Workshop 3: Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_3/workshop_solutions.html">Workshop 3: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_4/notes.html">Lists and Strings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_4/workshop.html">Workshop 4: Lists and Strings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_4/workshop_solutions.html">Workshop 4: Solutions</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="notes.html">Further Arrays</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Workshop 4: Modelling Space</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="workshop_solutions.html">Workshop 4: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/chapter_5/workshop.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_5/workshop.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/chapter_5/workshop.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Workshop 4: Modelling Space</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-moving-average">1D Moving Average</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2D Moving Average</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="workshop-4-modelling-space">
+<h1>Workshop 4: Modelling Space<a class="headerlink" href="#workshop-4-modelling-space" title="Link to this heading">#</a></h1>
+<p>We’ve already seen that we can use arrays to store one-dimensional sequences of numerical data. Such data might represent a time series of measurements, such as daily recordings of atmospheric pressure (<a class="reference internal" href="#pressure-fig"><span class="std std-numref">Fig. 5</span></a>) where the value <code class="docutils literal notranslate"><span class="pre">x[i]</span></code> in the array <code class="docutils literal notranslate"><span class="pre">x</span></code> corresponds to the pressure on day <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
+<figure class="align-default" id="pressure-fig" style="width: 400px">
+<img alt="../_images/5d696179f6f3a92f721cfeb2dd75f9144b814dd1d381adb1098010cfaaccc87b.png" src="../_images/5d696179f6f3a92f721cfeb2dd75f9144b814dd1d381adb1098010cfaaccc87b.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Atmospheric pressure measured for 113 consecutive days.</span><a class="headerlink" href="#pressure-fig" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>On the other hand, we might need to work with data that is two-dimensional, such as recordings of atmospheric pressure over a rectangular region. The values in the array are then indexed by two numbers so that <code class="docutils literal notranslate"><span class="pre">x[i,</span> <span class="pre">j]</span></code> corresponds to the pressure at the coordinate <code class="docutils literal notranslate"><span class="pre">i,</span> <span class="pre">j</span></code>. Such arrays can be represented as a heat map, which is an image where the intensity of each pixel represents the value of the array element (<a class="reference internal" href="#pressure-2d-fig"><span class="std std-numref">Fig. 6</span></a>).</p>
+<figure class="align-default" id="pressure-2d-fig" style="width: 400px">
+<img alt="../_images/40d5ddc8dceec43f448bc74bec61311fc8fc2e75bd53928eabadf7a2728143da.png" src="../_images/40d5ddc8dceec43f448bc74bec61311fc8fc2e75bd53928eabadf7a2728143da.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Atmospheric pressure over a 2d rectangular area.</span><a class="headerlink" href="#pressure-2d-fig" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="d-moving-average">
+<h2>1D Moving Average<a class="headerlink" href="#d-moving-average" title="Link to this heading">#</a></h2>
+<p>A <strong>moving average</strong> is commonly used when visualising time series data in order to smooth out short-term fluctuations in the data. <a class="reference internal" href="#moving-average-fig"><span class="std std-numref">Fig. 7</span></a> shows 113 days of atmospheric pressure along with the 10-day and 5-day moving averages.</p>
+<figure class="align-default" id="moving-average-fig" style="width: 600px">
+<img alt="../_images/15057268513d5d1371e711474878fec9bad04d176550eccec4553187f9b4a482.png" src="../_images/15057268513d5d1371e711474878fec9bad04d176550eccec4553187f9b4a482.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Atmospheric pressure measured for 113 consecutive days, along with 10-day and 5-day moving averages, where the <span class="math notranslate nohighlight">\(k\)</span>-day moving averages are taken over <span class="math notranslate nohighlight">\(2k+1\)</span> measurements centred at each day.</span><a class="headerlink" href="#moving-average-fig" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In this workshop, we define the <strong>k-moving average</strong> of an array as the array formed by averaging <span class="math notranslate nohighlight">\(k\)</span> values on either side of each element (a total of <span class="math notranslate nohighlight">\(2k + 1\)</span> elements). For example, given a sequence of values <span class="math notranslate nohighlight">\(x_i\)</span> then the 1-moving average <span class="math notranslate nohighlight">\(y_i\)</span> is defined by (see <a class="reference internal" href="#moving-average-def"><span class="std std-numref">Fig. 8</span></a>):</p>
+<div class="math notranslate nohighlight">
+\[y_i = (x_{i-1} + x_i + x_{i+1})/3.\]</div>
+<figure class="align-default" id="moving-average-def">
+<a class="reference internal image-reference" href="../_images/moving_average.png"><img alt="../_images/moving_average.png" src="../_images/moving_average.png" style="height: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Calculate the 1-moving average of an array as the mean of consecutive triples.</span><a class="headerlink" href="#moving-average-def" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We can calculate the 1-moving average in Python as follows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">])</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1-moving average:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1-moving average: [0.         3.13333333 3.5        4.         3.66666667 4.
+ 0.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>A more compact way to calculate the sum of consecutive elements is using <code class="docutils literal notranslate"><span class="pre">numpy</span></code> slice notation. We can replace <code class="docutils literal notranslate"><span class="pre">(x[i-1]</span> <span class="pre">+</span> <span class="pre">x[i]</span> <span class="pre">+</span> <span class="pre">x[i+1])/3</span></code> with <code class="docutils literal notranslate"><span class="pre">np.average(x[i-1:i+2])</span></code>. <code class="docutils literal notranslate"><span class="pre">x[a:b]</span></code> represents the subarray from <code class="docutils literal notranslate"><span class="pre">a</span></code> to <code class="docutils literal notranslate"><span class="pre">b</span></code> (<em>including</em> the lower limit but <em>excluding</em> the upper limit).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1-moving average:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1-moving average: [0.         3.13333333 3.5        4.         3.66666667 4.
+ 0.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that when <code class="docutils literal notranslate"><span class="pre">i=0</span></code> or <code class="docutils literal notranslate"><span class="pre">i=n</span></code> the subarray <code class="docutils literal notranslate"><span class="pre">x[i-1:i+2]</span></code> would include elements outside the bounds of the array <code class="docutils literal notranslate"><span class="pre">x</span></code>. The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop therefore excludes the first and last element in its <code class="docutils literal notranslate"><span class="pre">range</span></code> function and we end up with zeros padding the start and end of the array.</p>
+<div class="exercise admonition" id="exercise_4_5">
+
+<p class="admonition-title"><span class="caption-number">Exercise 61 </span></p>
+<section id="exercise-content">
+<p>Calculate the 2-moving average of <code class="docutils literal notranslate"><span class="pre">x</span></code>. You should get the following result:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">0.</span>   <span class="mf">0.</span>   <span class="mf">3.6</span>  <span class="mf">3.88</span> <span class="mf">3.5</span>  <span class="mf">0.</span>   <span class="mf">0.</span>  <span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</div>
+<div class="exercise admonition" id="exercise_4_6">
+
+<p class="admonition-title"><span class="caption-number">Exercise 62 </span></p>
+<section id="exercise-content">
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">moving_average(x,</span> <span class="pre">k)</span></code> which returns an array containing the <code class="docutils literal notranslate"><span class="pre">k</span></code>-moving average of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">moving_average</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="c1"># your code</span>
+    
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>Check that <code class="docutils literal notranslate"><span class="pre">moving_average(x,</span> <span class="pre">1)</span></code> and <code class="docutils literal notranslate"><span class="pre">moving_average(x,</span> <span class="pre">2)</span></code> produce the correct 1- and 2-moving averages, as previously calculated.</p>
+</section>
+</div>
+<p>Instead of padding the start and end of the array with zeros, we can simply average only the elements of the subarray <code class="docutils literal notranslate"><span class="pre">x[i-1:i+2]</span></code> which lie within the bounds of <code class="docutils literal notranslate"><span class="pre">x</span></code>. In the case of the 1-moving average we can achieve this by replacing the lower limit with <code class="docutils literal notranslate"><span class="pre">max(i-1,</span> <span class="pre">0)</span></code> and the upper limit with <code class="docutils literal notranslate"><span class="pre">min(i+2,</span> <span class="pre">n)</span></code>. We also change the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to include the full range from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">):</span><span class="nb">min</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">)])</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1-moving average:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1-moving average: [3.         3.13333333 3.5        4.         3.66666667 4.
+ 2.75      ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="exercise_4_7">
+
+<p class="admonition-title"><span class="caption-number">Exercise 63 </span></p>
+<section id="exercise-content">
+<p>Change your function <code class="docutils literal notranslate"><span class="pre">moving_average(x,</span> <span class="pre">k)</span></code> to remove the zero-padding.</p>
+</section>
+</div>
+<p>The array <code class="docutils literal notranslate"><span class="pre">pressure_data</span></code> contains the atmospheric pressure (measured in millibars) shown in <a class="reference internal" href="#pressure-fig"><span class="std std-numref">Fig. 5</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pressure_data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1018.3</span><span class="p">,</span> <span class="mf">1018.3</span><span class="p">,</span> <span class="mf">1015.7</span><span class="p">,</span> <span class="mf">1014.3</span><span class="p">,</span> <span class="mf">1011.8</span><span class="p">,</span> <span class="mf">1011.4</span><span class="p">,</span> <span class="mf">1015.5</span><span class="p">,</span> <span class="mf">1016.0</span><span class="p">,</span> <span class="mf">1016.9</span><span class="p">,</span> <span class="mf">1016.8</span><span class="p">,</span> <span class="mf">1016.4</span><span class="p">,</span> <span class="mf">1017.5</span><span class="p">,</span> <span class="mf">1018.8</span><span class="p">,</span> <span class="mf">1018.1</span><span class="p">,</span> <span class="mf">1017.1</span><span class="p">,</span> <span class="mf">1018.4</span><span class="p">,</span> <span class="mf">1022.0</span><span class="p">,</span> <span class="mf">1022.8</span><span class="p">,</span> <span class="mf">1021.8</span><span class="p">,</span> <span class="mf">1020.5</span><span class="p">,</span> <span class="mf">1021.0</span><span class="p">,</span> <span class="mf">1019.8</span><span class="p">,</span> <span class="mf">1018.9</span><span class="p">,</span> <span class="mf">1018.4</span><span class="p">,</span> <span class="mf">1017.8</span><span class="p">,</span> <span class="mf">1018.1</span><span class="p">,</span> <span class="mf">1019.6</span><span class="p">,</span> <span class="mf">1017.4</span><span class="p">,</span> <span class="mf">1015.8</span><span class="p">,</span> <span class="mf">1015.5</span><span class="p">,</span> <span class="mf">1017.5</span><span class="p">,</span> <span class="mf">1018.9</span><span class="p">,</span> <span class="mf">1017.7</span><span class="p">,</span> <span class="mf">1014.4</span><span class="p">,</span> <span class="mf">1014.2</span><span class="p">,</span> <span class="mf">1016.0</span><span class="p">,</span> <span class="mf">1016.1</span><span class="p">,</span> <span class="mf">1015.6</span><span class="p">,</span> <span class="mf">1016.4</span><span class="p">,</span> <span class="mf">1015.7</span><span class="p">,</span> <span class="mf">1016.6</span><span class="p">,</span> <span class="mf">1019.6</span><span class="p">,</span> <span class="mf">1021.6</span><span class="p">,</span> <span class="mf">1021.4</span><span class="p">,</span> <span class="mf">1020.6</span><span class="p">,</span> <span class="mf">1017.6</span><span class="p">,</span> <span class="mf">1016.5</span><span class="p">,</span> <span class="mf">1016.2</span><span class="p">,</span> <span class="mf">1013.0</span><span class="p">,</span> <span class="mf">1005.4</span><span class="p">,</span> <span class="mf">1007.4</span><span class="p">,</span> <span class="mf">1012.2</span><span class="p">,</span> <span class="mf">1015.2</span><span class="p">,</span> <span class="mf">1016.1</span><span class="p">,</span> <span class="mf">1014.3</span><span class="p">,</span> <span class="mf">1012.4</span><span class="p">,</span> <span class="mf">1014.2</span><span class="p">,</span> <span class="mf">1013.1</span><span class="p">,</span> <span class="mf">1012.9</span><span class="p">,</span> <span class="mf">1012.1</span><span class="p">,</span> <span class="mf">1010.6</span><span class="p">,</span> <span class="mf">1010.0</span><span class="p">,</span> <span class="mf">1010.5</span><span class="p">,</span> <span class="mf">1010.3</span><span class="p">,</span> <span class="mf">1007.4</span><span class="p">,</span> <span class="mf">1008.9</span><span class="p">,</span> <span class="mf">1007.4</span><span class="p">,</span> <span class="mf">1006.9</span><span class="p">,</span> <span class="mf">1009.8</span><span class="p">,</span> <span class="mf">1014.8</span><span class="p">,</span> <span class="mf">1014.9</span><span class="p">,</span> <span class="mf">1016.6</span><span class="p">,</span> <span class="mf">1014.1</span><span class="p">,</span> <span class="mf">1011.1</span><span class="p">,</span> <span class="mf">1010.7</span><span class="p">,</span> <span class="mf">1009.8</span><span class="p">,</span> <span class="mf">1011.9</span><span class="p">,</span> <span class="mf">1012.6</span><span class="p">,</span> <span class="mf">1011.8</span><span class="p">,</span> <span class="mf">1009.8</span><span class="p">,</span> <span class="mf">1008.9</span><span class="p">,</span> <span class="mf">1010.6</span><span class="p">,</span> <span class="mf">1009.9</span><span class="p">,</span> <span class="mf">1010.2</span><span class="p">,</span> <span class="mf">1009.5</span><span class="p">,</span> <span class="mf">1009.0</span><span class="p">,</span> <span class="mf">1007.1</span><span class="p">,</span> <span class="mf">1007.1</span><span class="p">,</span> <span class="mf">1007.5</span><span class="p">,</span> <span class="mf">1005.0</span><span class="p">,</span> <span class="mf">1004.2</span><span class="p">,</span> <span class="mf">1004.2</span><span class="p">,</span> <span class="mf">1007.2</span><span class="p">,</span> <span class="mf">1005.0</span><span class="p">,</span> <span class="mf">1002.9</span><span class="p">,</span> <span class="mf">1007.4</span><span class="p">,</span> <span class="mf">1010.4</span><span class="p">,</span> <span class="mf">1010.6</span><span class="p">,</span> <span class="mf">1008.6</span><span class="p">,</span> <span class="mf">1006.2</span><span class="p">,</span> <span class="mf">1005.9</span><span class="p">,</span> <span class="mf">1006.8</span><span class="p">,</span> <span class="mf">1004.6</span><span class="p">,</span> <span class="mf">1002.4</span><span class="p">,</span> <span class="mf">1003.2</span><span class="p">,</span> <span class="mf">1004.4</span><span class="p">,</span> <span class="mf">1003.1</span><span class="p">,</span> <span class="mf">1000.9</span><span class="p">,</span> <span class="mf">998.6</span><span class="p">,</span> <span class="mf">999.9</span><span class="p">,</span> <span class="mf">1001.6</span><span class="p">,</span> <span class="mf">1002.1</span><span class="p">,</span> <span class="mf">1004.1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="exercise_4_8">
+
+<p class="admonition-title"><span class="caption-number">Exercise 64 </span></p>
+<section id="exercise-content">
+<p>Plot the atmospheric pressure data on a line graph. On the same graph, plot the 5- and 10-moving averages (as shown in <a class="reference internal" href="#moving-average-fig"><span class="std std-numref">Fig. 7</span></a>).</p>
+</section>
+</div>
+</section>
+<section id="id1">
+<h2>2D Moving Average<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>We can extend the definition of moving average to 2-dimensional data. One application of moving averages on 2-dimensional data is smoothing images. In <a class="reference internal" href="#cats-fig"><span class="std std-numref">Fig. 9</span></a> the image on the left is an <code class="docutils literal notranslate"><span class="pre">n</span></code> by <code class="docutils literal notranslate"><span class="pre">m</span></code> array where the colour intensity of each pixel corresponds to the value of each array element. Applying a 2-dimensional moving average to each pixel result in the smoothed image on the right.</p>
+<figure class="align-default" id="cats-fig" style="width: 600px">
+<img alt="../_images/f46056872b16891cb67a237e4060695f28e4c3a68f963d3650d6559bca11ca38.png" src="../_images/f46056872b16891cb67a237e4060695f28e4c3a68f963d3650d6559bca11ca38.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">An image before (left) and after (right) 2-dimensional averaging.</span><a class="headerlink" href="#cats-fig" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The 2-dimensional 1-moving average is calculated by taking the average of the 9 values in the 3 by 3 sub-array centred at each element (see figure <a class="reference internal" href="#moving-average-2d-fig"><span class="std std-numref">Fig. 10</span></a>). In the example below we do this calculation for a single cell <code class="docutils literal notranslate"><span class="pre">x[1,1]</span></code> of a 5 by 5 array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<figure class="align-default" id="moving-average-2d-fig">
+<a class="reference internal image-reference" href="../_images/moving_average_2d.jpg"><img alt="../_images/moving_average_2d.jpg" src="../_images/moving_average_2d.jpg" style="height: 150px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">The 1-moving average of the cell at position <code class="docutils literal notranslate"><span class="pre">1,</span> <span class="pre">1</span></code> is the average of the 9 surrounding cells.</span><a class="headerlink" href="#moving-average-2d-fig" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># calculate the 2d moving average of the cell x[1, 1]</span>
+<span class="n">sub_array</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">average</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">sub_array</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3 by 3 sub array:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">sub_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;average:&quot;</span><span class="p">,</span> <span class="n">average</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 by 3 sub array:
+ [[0 0 0]
+ [0 6 6]
+ [0 6 6]]
+average: 2.6666666666666665
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we can then create a second array to store the result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">average</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.         0.         0.         0.         0.        ]
+ [0.         2.66666667 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="exercise_4_9">
+
+<p class="admonition-title"><span class="caption-number">Exercise 65 </span></p>
+<section id="exercise-content">
+<p>Complete the following code to calculate the 2d 1-moving average for all cells in <code class="docutils literal notranslate"><span class="pre">x</span></code> (except the cells along each edge).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+        <span class="c1"># calculate the average of the 3 by 3</span>
+        <span class="c1"># subarray centred at cell i, j</span>
+        <span class="c1"># then store in the appropriate cell of y</span>
+</pre></div>
+</div>
+<p>Check you get the correct answer as below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">0.</span>         <span class="mf">0.</span>         <span class="mf">0.</span>         <span class="mf">0.</span>         <span class="mf">0.</span>        <span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span>         <span class="mf">2.66666667</span> <span class="mf">4.</span>         <span class="mf">2.66666667</span> <span class="mf">0.</span>        <span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span>         <span class="mf">4.</span>         <span class="mf">6.</span>         <span class="mf">4.</span>         <span class="mf">0.</span>        <span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span>         <span class="mf">2.66666667</span> <span class="mf">4.</span>         <span class="mf">2.66666667</span> <span class="mf">0.</span>        <span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span>         <span class="mf">0.</span>         <span class="mf">0.</span>         <span class="mf">0.</span>         <span class="mf">0.</span>        <span class="p">]]</span>
+</pre></div>
+</div>
+</section>
+</div>
+<p>Now let’s try this procedure on the image shown in <a class="reference internal" href="#cats-fig"><span class="std std-numref">Fig. 9</span></a>. The data for this image can be found in the file <a href="../modelling_space/falling_cat.txt" download>falling_cat.txt</a>. The following code can be used to load the image file into a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array, then display the contents of the array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;falling_cat.txt&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x27e77ca9bd0&gt;
+</pre></div>
+</div>
+<img alt="../_images/3ff2930e2577ddc963d517a9cb64c9819995605df8db69493acd96b019a47c87.png" src="../_images/3ff2930e2577ddc963d517a9cb64c9819995605df8db69493acd96b019a47c87.png" />
+</div>
+</div>
+<div class="exercise admonition" id="exercise_4_10">
+
+<p class="admonition-title"><span class="caption-number">Exercise 66 </span></p>
+<section id="exercise-content">
+<p>Load the file <code class="docutils literal notranslate"><span class="pre">falling_cat.txt</span></code> into a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array. Use your code from the previous question to calculate its 1-moving average, then use <code class="docutils literal notranslate"><span class="pre">plt.imshow</span></code> to display the image before and after smoothing. You should end up with two images similar to <a class="reference internal" href="#cats-fig"><span class="std std-numref">Fig. 9</span></a>.</p>
+<p>Hint: you can use <code class="docutils literal notranslate"><span class="pre">x.shape</span></code> to find the dimensions of the original array.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;falling_cat.txt&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span>
+
+</pre></div>
+</div>
+</section>
+</div>
+<p>The 2-dimensional 1-moving average calculates the average across 3 by 3 subarrays centred at each array element. Similarly, we can calculate the k-moving average across <span class="math notranslate nohighlight">\(2k+1\)</span> by <span class="math notranslate nohighlight">\(2k+1\)</span> subarrays.</p>
+<div class="exercise admonition" id="exercise_4_11">
+
+<p class="admonition-title"><span class="caption-number">Exercise 67 </span></p>
+<section id="exercise-content">
+<p>Adapt your code so that it calculates the k-moving average of the array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>Then, write a function <code class="docutils literal notranslate"><span class="pre">moving_average_2d(x,</span> <span class="pre">k)</span></code> which returns the k-moving average of the 2d array x. Test your function against the cat image for various values of <code class="docutils literal notranslate"><span class="pre">k</span></code>. Bigger values of <code class="docutils literal notranslate"><span class="pre">k</span></code> should result in a more blurry image.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">moving_average_2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="c1"># your code here</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;falling_cat.txt&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># this should result in a very blurry image</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">moving_average_2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</div>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="notes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Further Arrays</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="workshop_solutions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Workshop 4: Solutions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-moving-average">1D Moving Average</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2D Moving Average</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Natural Sciences
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

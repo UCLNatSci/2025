@@ -1,0 +1,181 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.18.1
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
+---
+
+# Workshop 4: Solutions
+
++++
+
+## Exercise 1
+
+The 2-moving average of `x` is formed by averaging the 2 values on either side of `x_i` (5 values in total). We can modify the for loop we just saw. The index of `x` should be extended by 1 on either side - from `i-2` to `i+3`. The for loop also needs to change, otherwise when `i=1` or `i=n-1` the subarray `x[i-2:i+3]` will go outside the bounds of `x`.
+
+```{code-cell} python
+import numpy as np
+
+x = np.array([1.0, 5.0, 3.4, 2.1, 6.5, 2.4, 3.1])
+n = len(x)
+
+y = np.zeros(n)
+
+for i in range(2, n - 2):
+    y[i] = np.average(x[i-2:i+3])
+    
+print("2-moving average:", y)
+```
+
+## Exercise 2
+
+We need to adapt our code so that it will work for an integer `k`. Notice that to adapt the code above from the 1-moving average to the 2-moving average, we just needed to change the range of the for loop and adjust the index of $x$ so we don't go out of bounds. 
+
+The first element of the array that has `k` elements before it will be at index `k`. The last element to have `k` elements after it will be at index `n-k-1`, so we adjust the for loop to cover `range(k, n-k)` (remembering that it won't include the last element). 
+Then to get the subarray containing the `k` elements before and after the index `i`, we can use `x[i-k:i+k+1]`. The function looks like:
+
+```{code-cell} python
+def moving_average(x, k):
+    n = len(x)
+    y = np.zeros(n)
+
+    for i in range(k, n - k):
+        y[i] = np.average(x[i-k:i+k+1])
+
+    return y
+```
+
+We can check it works by calling:
+```{code-cell} python
+print(moving_average(x, 1))
+print(moving_average(x, 2))
+```
+
+:::{solution} exercise_4_7
+
+To adapt our function we need to change the for loop to cover the full range from `0` to `n`, and then replace the lower limit with `max(i-k, 0)` and the upper limit with `min(i+k+1, n)`. 
+
+```
+def moving_average(x, k):
+    n = len(x)
+    y = np.zeros(n)
+
+    for i in range(0, n):
+        y[i] = np.average(x[max(i-k, 0):min(i+k+1, n)])
+
+    return y
+```
+Let's check this works:
+
+```
+print(moving_average(x, 2))
+```
+:::
+
+:::{solution} exercise_4_8
+First we need to calculate the moving averages
+```
+# get the moving averages
+moving_avg_5 = moving_average(pressure_data, 5)
+moving_avg_10 = moving_average(pressure_data, 10)
+```
+
+Then we can build up the plot. Here we have used the `color` keyword to plot the underlying pressure data in black, and added labels and a legend so we can see which line is which.
+```
+import matplotlib.pyplot as plt
+
+# build the plot
+plt.figure(figsize=(10,8))
+plt.plot(pressure_data, label = "raw data", color = "black")
+plt.plot(moving_avg_10, label = "10 day")
+plt.plot(moving_avg_5, label = "5 day")
+plt.xlabel("Day")
+plt.ylabel("Pressure (mbar)")
+plt.legend()
+```
+
+:::
+
+:::{solution} exercise_4_9
+To find the 1-moving average of the cell at position `i, j` we need to take the average of all the cells in the rows `i-1` up to and including `i+1`, and in the columns `j-1` up to and including `j+1`. Remember we need to add 1 to the final index to make sure we get the whole 3-by-3 array. 
+
+```
+x = np.array([[0, 0, 0, 0, 0],
+              [0, 6, 6, 6, 0],
+              [0, 6, 6, 6, 0],
+              [0, 6, 6, 6, 0],
+              [0, 0, 0, 0, 0]])
+
+y = np.zeros((5, 5))
+
+for i in range(1, 4):
+    for j in range(1, 4):
+        sub_array = x[(i-1):(i+2), (j-1):(j+2)]
+        y[i, j] = np.average(sub_array)
+        
+print(y)
+```
+:::
+
+:::{solution} exercise_4_10
+
+First we can load the image and retrieve the shape of the array - this will tell us what size our new array should be. 
+```
+x = np.loadtxt("falling_cat.txt")
+n, m = x.shape
+y = np.zeros((n, m))
+```
+
+Then we just need to adapt out code to work for an array of this shape. The inside of the nested for loop can stay the same, but we need to change the upper limit of both loops. When there were five rows and five columns the upper limit was four, so now we should use `n-1` and `m-1`.
+```
+for i in range(1, n-1):
+    for j in range(1, m-1):
+        sub_array = x[(i-1):(i+2), (j-1):(j+2)]
+        y[i, j] = np.average(sub_array)
+        
+plt.imshow(x, cmap="gray")
+plt.imshow(y, cmap="gray")
+```
+:::
+
+:::{solution} exercise_4_11
+
+Let's write a function that calculates the k-moving average of the 2d array `x`. We need to adjust the limits of the for loops and the indices of the sub-array - just like we did in 1 dimension! We will leave the zero padding so the for loops should go from row `k` to `n-k-1` and from column `k` to `m-k-1`. The sub-array should contain the `2k+1` by `2k+1` array centred at `i, j`, which goes from row `i-k` to `i+k` and from column `j-k` to `j+k`. Remember to add 1 to the upper limits!
+
+```
+def moving_average_2d(x, k):
+    # get the shape
+    n, m = x.shape
+    
+    # set up the empty array
+    y = np.zeros((n, m))
+    
+    # fill in moving avg
+    for i in range(k, n-k):
+        for j in range(k, m-k):
+            sub_array = x[(i-k):(i+k+1), (j-k):(j+k+1)]
+            y[i, j] = np.average(sub_array)
+           
+    return y
+```
+
+Testing this we see that as we make `k` bigger, the image gets blurrier.
+
+```
+x = np.loadtxt("falling_cat.txt")
+plt.figure()
+plt.imshow(x, cmap="gray")
+
+
+# this should result in a very blurry image
+y = moving_average_2d(x, 8)
+plt.figure()
+plt.imshow(y, cmap="gray")
+```
+:::

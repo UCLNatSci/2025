@@ -1,0 +1,983 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Workshop 3: Solutions &#8212; Scientific Computing Workbook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_3/workshop_solutions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercises" href="exercises.html" />
+    <link rel="prev" title="Workshop 3: Functions" href="workshop.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/nsci0036_logo.png" class="logo__image only-light" alt="Scientific Computing Workbook - Home"/>
+    <script>document.write(`<img src="../_static/nsci0036_logo.png" class="logo__image only-dark" alt="Scientific Computing Workbook - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programming with Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_1/notes.html">Fundamentals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_1/workshop.html">Workshop 1: Fundamentals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_1/workshop_solutions.html">Workshop 1: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_2/notes.html">Arrays and Plotting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_2/workshop.html">Workshop 2: Modelling Change</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2/workshop_solutions.html">Workshop 2: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_2/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="notes.html">Functions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="workshop.html">Workshop 3: Functions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Workshop 3: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_4/notes.html">Lists and Strings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_4/workshop.html">Workshop 4: Lists and Strings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_4/workshop_solutions.html">Workshop 4: Solutions</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_5/notes.html">Further Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_5/workshop.html">Workshop 4: Modelling Space</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5/workshop_solutions.html">Workshop 4: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/chapter_3/workshop_solutions.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_3/workshop_solutions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/chapter_3/workshop_solutions.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Workshop 3: Solutions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7">Exercise 7</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="workshop-3-solutions">
+<h1>Workshop 3: Solutions<a class="headerlink" href="#workshop-3-solutions" title="Link to this heading">#</a></h1>
+<section id="exercise-1">
+<h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h2>
+<p>In order to decide how to calculate the next term in the sequence, we need to work out whether <span class="math notranslate nohighlight">\(n\)</span> is even or odd. Recall from tutorial 1 that we can use the modulus operator <code class="docutils literal notranslate"><span class="pre">%</span></code> to find the remainder after floor division. So if <span class="math notranslate nohighlight">\(n % 2\)</span> is equal to <span class="math notranslate nohighlight">\(0\)</span> then <span class="math notranslate nohighlight">\(n\)</span> must be even.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">collatz_op</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>     <span class="c1"># check if n is even</span>
+        <span class="n">next_term</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>                <span class="c1"># must be odd</span>
+        <span class="n">next_term</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> 
+    
+    <span class="k">return</span> <span class="n">next_term</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can check the function works by trying it out for <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">6</span></code>. When <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">5</span></code> we triple it and add <code class="docutils literal notranslate"><span class="pre">1</span></code>, so the next term if 16. When <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">6</span></code> we divide it by two so the next term is <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">collatz_op</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">collatz_op</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+3.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2">
+<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h2>
+<p>To calculate the Collatz Number of <code class="docutils literal notranslate"><span class="pre">n</span></code> we need to iteratively calculate the next term in the sequence until we get to <code class="docutils literal notranslate"><span class="pre">1</span></code> and calculate how many iterations we used. Note that the Collatz Number of <code class="docutils literal notranslate"><span class="pre">1</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code>, so the counter should be initialised to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">collatz_number</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">collatz_op</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">num</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check this works using <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">6</span></code>. We know that the Collatz Number of <span class="math notranslate nohighlight">\(5\)</span> is <span class="math notranslate nohighlight">\(6\)</span>. When <span class="math notranslate nohighlight">\(n\)</span> is <span class="math notranslate nohighlight">\(6\)</span>, the Collatz Sequence is <span class="math notranslate nohighlight">\(6, 3, 10, 5, 16, 8, 4, 2, 1\)</span> so the Collatz Number is <span class="math notranslate nohighlight">\(9\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The Collatz Number of 5 is &#39;</span><span class="p">,</span> <span class="n">collatz_number</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The Collatz Number of 6 is &#39;</span><span class="p">,</span> <span class="n">collatz_number</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Collatz Number of 5 is  6
+The Collatz Number of 6 is  9
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3">
+<h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">collatz_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">collatz_numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">collatz_number</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># remember to plot the collatz numbers against 1-100, not 0-99</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">collatz_numbers</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;First 100 Collatz Numbers&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Collatz Number&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Collatz Number&#39;)
+</pre></div>
+</div>
+<img alt="../_images/93f57d73477a45fe9e6a8800051455d5e71ccb4ab40ee9a2389cce0398fd4f30.png" src="../_images/93f57d73477a45fe9e6a8800051455d5e71ccb4ab40ee9a2389cce0398fd4f30.png" />
+</div>
+</div>
+</section>
+<section id="exercise-4">
+<h2>Exercise 4<a class="headerlink" href="#exercise-4" title="Link to this heading">#</a></h2>
+<p>Using our code from last week, we just need to make a little addition to calculate peak infections:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># set up variables and arrays</span>
+<span class="n">n_days</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">0.00005</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_days</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_days</span><span class="p">)</span>
+
+<span class="c1"># initialise the variables</span>
+<span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="n">I</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># implement equations</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_days</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="c1"># plot the figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (days)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># check the maximum </span>
+<span class="n">peak_infections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;For infection rate&#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;infections peak at&#39;</span><span class="p">,</span> <span class="n">peak_infections</span><span class="p">,</span> <span class="s1">&#39;cases.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For infection rate 5e-05 infections peak at 14873.5610390745 cases.
+</pre></div>
+</div>
+<img alt="../_images/745003ce29c613e04427f6fb5683f974be81c57b1f4a808f7402362247322ac1.png" src="../_images/745003ce29c613e04427f6fb5683f974be81c57b1f4a808f7402362247322ac1.png" />
+</div>
+</div>
+<p>Looking at the graph, infections peak at around <span class="math notranslate nohighlight">\(15000\)</span> cases, which is similar to what we find frpom <code class="docutils literal notranslate"><span class="pre">np.max</span></code>. Let’s check for another value of <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># set up variables and arrays</span>
+<span class="n">n_days</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">0.00001</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_days</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_days</span><span class="p">)</span>
+
+<span class="c1"># initialise the variables</span>
+<span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="n">I</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># implement equations</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_days</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="c1"># plot the figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (days)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># check the maximum </span>
+<span class="n">peak_infections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;For infection rate&#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;infections peak at&#39;</span><span class="p">,</span> <span class="n">peak_infections</span><span class="p">,</span> <span class="s1">&#39;cases.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For infection rate 1e-05 infections peak at 3245.641623687537 cases.
+</pre></div>
+</div>
+<img alt="../_images/6138c7fe060cc549126231951932add317926fa68416be4fe63d6317147d859d.png" src="../_images/6138c7fe060cc549126231951932add317926fa68416be4fe63d6317147d859d.png" />
+</div>
+</div>
+<p>This time, both from <code class="docutils literal notranslate"><span class="pre">np.max</span></code> and by visually inspecting the graph we see that the peak number of infections is much lower.</p>
+</section>
+<section id="exercise-5">
+<h2>Exercise 5<a class="headerlink" href="#exercise-5" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>First we need to write a function that will return the maximum number of infected people for different parameter values. We can just modify the code above so that it is inside a function:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">max_infected</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="c1"># Run the simulation and calculate</span>
+    <span class="c1"># the peak number of infections</span>
+    
+    <span class="c1"># set up variables and arrays</span>
+    <span class="n">n_days</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_days</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_days</span><span class="p">)</span>
+
+    <span class="c1"># initialise the variables</span>
+    <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20000</span>
+    <span class="n">I</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+
+    <span class="c1"># implement equations</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_days</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        
+    <span class="c1"># check the maximum </span>
+    <span class="n">peak_infections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">peak_infections</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can check this works by calling the function for <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">0.1</span></code> and the values of <code class="docutils literal notranslate"><span class="pre">b</span></code> we tested above. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_infected</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.00005</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(14873.5610390745)
+</pre></div>
+</div>
+</div>
+</div>
+<p>returns <span class="math notranslate nohighlight">\(14873\)</span>, as we expect!</p>
+<p>2. Recall from last week that to generate <code class="docutils literal notranslate"><span class="pre">10</span></code> evenly spaced numbers from  <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">0.00005</span></code> we can use:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.00005</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>3. Again, recall from last week that we can create an array containing 10 zeros:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peak_infections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>4. We have also seem how to use a loop to set a value in an array - notice that we need to retrieve each value of <code class="docutils literal notranslate"><span class="pre">b</span></code> to test from <code class="docutils literal notranslate"><span class="pre">b_array</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1"># Calculate the peak number of infections</span>
+    <span class="c1"># for the given value of b</span>
+    <span class="n">peak_infections</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_infected</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">b_array</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>5. Now we just need to plot the <code class="docutils literal notranslate"><span class="pre">peak_infections</span></code> array against <code class="docutils literal notranslate"><span class="pre">b_array</span></code> to see how peak infections vary with the infection parameter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a plot of peak infections against b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b_array</span><span class="p">,</span> <span class="n">peak_infections</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Peak infection size against infection rate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Infection rate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Peak infection&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Peak infection&#39;)
+</pre></div>
+</div>
+<img alt="../_images/87e756a15fa38dee3384fc6d5ffa189c6f1c170f7d7b031d1dbc671062992dd0.png" src="../_images/87e756a15fa38dee3384fc6d5ffa189c6f1c170f7d7b031d1dbc671062992dd0.png" />
+</div>
+</div>
+<p>Putting this altogether we have:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">max_infected</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="c1"># Run the simulation and calculate</span>
+    <span class="c1"># the peak number of infections</span>
+    
+    <span class="c1"># set up variables and arrays</span>
+    <span class="n">n_days</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_days</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_days</span><span class="p">)</span>
+
+    <span class="c1"># initialise the variables</span>
+    <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20000</span>
+    <span class="n">I</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+
+    <span class="c1"># implement equations</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_days</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        
+    <span class="c1"># check the maximum </span>
+    <span class="n">peak_infections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">peak_infections</span>
+
+<span class="n">b_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.00005</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">peak_infections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1"># Calculate the peak number of infections</span>
+    <span class="c1"># for the given value of b</span>
+    <span class="n">peak_infections</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_infected</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">b_array</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="c1"># Create a plot of peak infections against b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b_array</span><span class="p">,</span> <span class="n">peak_infections</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Peak infection size against infection rate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Infection rate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Peak infection&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Peak infection&#39;)
+</pre></div>
+</div>
+<img alt="../_images/87e756a15fa38dee3384fc6d5ffa189c6f1c170f7d7b031d1dbc671062992dd0.png" src="../_images/87e756a15fa38dee3384fc6d5ffa189c6f1c170f7d7b031d1dbc671062992dd0.png" />
+</div>
+</div>
+<p>As we expect, as the infection rate grows so does the peak infection!</p>
+</section>
+<section id="exercise-6">
+<h2>Exercise 6<a class="headerlink" href="#exercise-6" title="Link to this heading">#</a></h2>
+<p>We can use the function <code class="docutils literal notranslate"><span class="pre">np.sum</span></code> to sum the values in an array. To find out the total number of infected person-days we just need to sum the values in <code class="docutils literal notranslate"><span class="pre">I</span></code> - so we just need to make a small tweak to the <code class="docutils literal notranslate"><span class="pre">max_infected</span></code> function we wrote above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">total_infected</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="c1"># Run the simulation and calculate</span>
+    <span class="c1"># the total number of infections</span>
+
+    <span class="c1"># set up variables and arrays</span>
+    <span class="n">n_days</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_days</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_days</span><span class="p">)</span>
+
+    <span class="c1"># initialise the variables</span>
+    <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20000</span>
+    <span class="n">I</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+
+    <span class="c1"># implement equations</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_days</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1"># check the total - sum instead of max!</span>
+    <span class="n">total_infections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">total_infections</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This code is tricky to test as it is not easy to see the total infected person-days from the graph! However, when <span class="math notranslate nohighlight">\(b = 0\)</span> and <span class="math notranslate nohighlight">\(a = 1\)</span>, the equations reduce to</p>
+<div class="math notranslate nohighlight" id="equation-sir-equations-exercise">
+<span class="eqno">(3)<a class="headerlink" href="#equation-sir-equations-exercise" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}S_{i+1} &amp;= S_i \\
+I_{i+1} &amp;= 0.\end{align}\end{split}\]</div>
+<p>so everyone recovers after just <span class="math notranslate nohighlight">\(1\)</span> day, and no one else is infected. This means the total infected person-days for these parameter values should be <span class="math notranslate nohighlight">\(100\)</span> - let’s check!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_infected</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(100.0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we just need to plot the total infected person-days for different values of <span class="math notranslate nohighlight">\(b\)</span> - just like we did above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up variables and arrays</span>
+<span class="n">b_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.00005</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">total_infections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1"># Calculate the total number of infections</span>
+    <span class="c1"># for the given value of b</span>
+    <span class="n">total_infections</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">total_infected</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">b_array</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="c1"># Create a plot of total infections against b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b_array</span><span class="p">,</span> <span class="n">total_infections</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Total infection size against infection rate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Infection rate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Total infection size&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Total infection size&#39;)
+</pre></div>
+</div>
+<img alt="../_images/bcff5c38466db4a9427f841297304c0b5ad624981c5176bb464971806584eb11.png" src="../_images/bcff5c38466db4a9427f841297304c0b5ad624981c5176bb464971806584eb11.png" />
+</div>
+</div>
+</section>
+<section id="exercise-7">
+<h2>Exercise 7<a class="headerlink" href="#exercise-7" title="Link to this heading">#</a></h2>
+<p>As above, let’s check the costs for 10 values of <span class="math notranslate nohighlight">\(b\)</span> in the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(0.00005\)</span>. We need to set up arrays to contain the costs and then calculate the corresponding cost for each value of <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>Notice that when <span class="math notranslate nohighlight">\(b = 0\)</span> the formula suggests the intervention cost will be infinite - Python cannot handle dividing by zero (try it!) and will throw an error. To get around this, we can use <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> to set up the array for <span class="math notranslate nohighlight">\(b\)</span> as normal, and then just make the first element non-zero (but still small).</p>
+<p>Also notice that rather than initialising a third array and calculating each element of <code class="docutils literal notranslate"><span class="pre">total_cost</span></code> one by one, we have just been able to add the <code class="docutils literal notranslate"><span class="pre">intervention_cost</span></code> and <code class="docutils literal notranslate"><span class="pre">medical_cost</span></code> arrays together - this works because they are both the same size!</p>
+<div class="docutils">
+<p>Examining the graph, we can see that costs are minimised when <span class="math notranslate nohighlight">\(b \approx 5 \times 10^{-6}\)</span>.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="workshop.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Workshop 3: Functions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exercises.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercises</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5">Exercise 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6">Exercise 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7">Exercise 7</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Natural Sciences
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
