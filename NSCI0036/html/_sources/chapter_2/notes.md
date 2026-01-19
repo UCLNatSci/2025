@@ -142,6 +142,49 @@ print(fib)
 
 +++
 
+## Slicing Arrays
+
+**Slicing** means extracting a portion of an array from one given index to another given index. The basic syntax is
+
+```x[start:end]```
+
+which extracts the elements of `x` starting at index `start` and ending at index `end`. The result  includes the start index but excludes the end index. For example,
+
+```{code-cell} ipython3
+x = np.array([10, 20, 30, 40, 50, 60])
+
+print(x[2:4])
+```
+
+We can also define a step size,
+
+```x[start:end:step]```
+
+which will extract every `step` elements between `start` and `end`. For example,
+
+```{code-cell} ipython3
+x = np.array([10, 20, 30, 40, 50, 60, 70, 80, 90])
+
+print(x[2:8:2])
+```
+
+If `start` or `end` is empty, the extract starts or ends at the boundary of the array:
+
+```{code-cell} ipython3
+x = np.array([10, 20, 30, 40, 50, 60, 70, 80, 90])
+
+print(x[:3])
+print(x[3:])
+```
+
+pass negative values for `start` or `end` to count indexes from the end of the array rather than the start:
+
+```{code-cell} ipython3
+x = np.array([10, 20, 30, 40, 50, 60, 70, 80, 90])
+
+print(x[-4:-2])
+```
+
 ## Creating Numpy Arrays
 
 Above, we created an array using the `np.array` function. Other ways to create an array include the functions `np.zeros` and `np.linspace`.

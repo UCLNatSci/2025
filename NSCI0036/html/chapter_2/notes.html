@@ -36,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=982b99e0" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom_styles.css?v=933d72f2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -63,7 +64,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_2/notes';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Functions" href="../chapter_3/notes.html" />
     <link rel="prev" title="Fundamentals" href="../chapter_1/notes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -186,9 +186,6 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../chapter_1/notes.html">Fundamentals</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Arrays and Plotting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_3/notes.html">Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_4/notes.html">Lists and Strings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_5/notes.html">Further Arrays</a></li>
 </ul>
 
     </div>
@@ -388,6 +385,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-libraries">Python Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries">Importing Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays"><code class="docutils literal notranslate"><span class="pre">numpy</span></code> Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-arrays">Slicing Arrays</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-numpy-arrays">Creating Numpy Arrays</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops"><code class="docutils literal notranslate"><span class="pre">for</span></code> Loops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-using-matplotlib">Plotting using Matplotlib</a></li>
@@ -571,6 +569,75 @@ Population in year 3: 54
 </section>
 </div>
 </section>
+<section id="slicing-arrays">
+<h2>Slicing Arrays<a class="headerlink" href="#slicing-arrays" title="Link to this heading">#</a></h2>
+<p><strong>Slicing</strong> means extracting a portion of an array from one given index to another given index. The basic syntax is</p>
+<p><code class="docutils literal notranslate"><span class="pre">x[start:end]</span></code></p>
+<p>which extracts the elements of <code class="docutils literal notranslate"><span class="pre">x</span></code> starting at index <code class="docutils literal notranslate"><span class="pre">start</span></code> and ending at index <code class="docutils literal notranslate"><span class="pre">end</span></code>. The result  includes the start index but excludes the end index. For example,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[30 40]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also define a step size,</p>
+<p><code class="docutils literal notranslate"><span class="pre">x[start:end:step]</span></code></p>
+<p>which will extract every <code class="docutils literal notranslate"><span class="pre">step</span></code> elements between <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code>. For example,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[30 50 70]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">start</span></code> or <code class="docutils literal notranslate"><span class="pre">end</span></code> is empty, the extract starts or ends at the boundary of the array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10 20 30]
+[40 50 60 70 80 90]
+</pre></div>
+</div>
+</div>
+</div>
+<p>pass negative values for <code class="docutils literal notranslate"><span class="pre">start</span></code> or <code class="docutils literal notranslate"><span class="pre">end</span></code> to count indexes from the end of the array rather than the start:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[60 70]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="creating-numpy-arrays">
 <h2>Creating Numpy Arrays<a class="headerlink" href="#creating-numpy-arrays" title="Link to this heading">#</a></h2>
 <p>Above, we created an array using the <code class="docutils literal notranslate"><span class="pre">np.array</span></code> function. Other ways to create an array include the functions <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code> and <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code>.</p>
@@ -751,7 +818,7 @@ i = 9
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2090c969310&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2368b32d310&gt;]
 </pre></div>
 </div>
 <img alt="../_images/9585f0e2e16daa47c7201462036cabe068c57aa1ef1c11c19417df6d30f9af7b.png" src="../_images/9585f0e2e16daa47c7201462036cabe068c57aa1ef1c11c19417df6d30f9af7b.png" />
@@ -769,7 +836,7 @@ i = 9
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2090fa55950&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2368d449950&gt;]
 </pre></div>
 </div>
 <img alt="../_images/c2856e01ee9efea1d76580f5c19d72710d49a30bc9695b31814ce6867b6fce6c.png" src="../_images/c2856e01ee9efea1d76580f5c19d72710d49a30bc9695b31814ce6867b6fce6c.png" />
@@ -884,15 +951,6 @@ i = 9
         <p class="prev-next-title">Fundamentals</p>
       </div>
     </a>
-    <a class="right-next"
-       href="../chapter_3/notes.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Functions</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -912,6 +970,7 @@ i = 9
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-libraries">Python Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries">Importing Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays"><code class="docutils literal notranslate"><span class="pre">numpy</span></code> Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-arrays">Slicing Arrays</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-numpy-arrays">Creating Numpy Arrays</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops"><code class="docutils literal notranslate"><span class="pre">for</span></code> Loops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-using-matplotlib">Plotting using Matplotlib</a></li>

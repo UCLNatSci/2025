@@ -36,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=982b99e0" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom_styles.css?v=933d72f2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -63,8 +64,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_3/notes';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lists and Strings" href="../chapter_4/notes.html" />
-    <link rel="prev" title="Arrays and Plotting" href="../chapter_2/notes.html" />
+    <link rel="next" title="Workshop 3: Functions" href="workshop.html" />
+    <link rel="prev" title="Exercises" href="../chapter_2/exercises.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,11 +185,44 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programming with Python</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter_1/notes.html">Fundamentals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_2/notes.html">Arrays and Plotting</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_4/notes.html">Lists and Strings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter_5/notes.html">Further Arrays</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_1/notes.html">Fundamentals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_1/workshop.html">Workshop 1: Fundamentals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_1/workshop_solutions.html">Workshop 1: Solutions</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_2/notes.html">Arrays and Plotting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_2/workshop.html">Workshop 2: Modelling Change</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2/workshop_solutions.html">Workshop 2: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_2/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Functions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="workshop.html">Workshop 3: Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="workshop_solutions.html">Workshop 3: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_4/notes.html">Lists and Strings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_4/workshop.html">Workshop 4: Lists and Strings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_4/workshop_solutions.html">Workshop 4: Solutions</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_5/notes.html">Further Arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../chapter_5/workshop.html">Workshop 4: Modelling Space</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5/workshop_solutions.html">Workshop 4: Solutions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -444,7 +478,7 @@ round(number, ndigits=None)
 </div>
 <div class="exercise admonition" id="exercise_3_1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 46 </span></p>
 <section id="exercise-content">
 <ol class="arabic simple">
 <li><p>What will <code class="docutils literal notranslate"><span class="pre">round(-0.5)</span></code> return? Try it.</p></li>
@@ -454,7 +488,7 @@ round(number, ndigits=None)
 </div>
 <div class="solution dropdown admonition" id="chapter_3/notes-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exercise_3_1"> Exercise 12</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercise_3_1"> Exercise 46</a></p>
 <section id="solution-content">
 <p>First, let’s see what happens when we call <code class="docutils literal notranslate"><span class="pre">round(-0.5)</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
@@ -552,7 +586,7 @@ round(number, ndigits=None)
 <p>Notice something very important here. The name of the variable we pass as an argument (<code class="docutils literal notranslate"><span class="pre">n</span></code>) has nothing to do with the name of the parameter (<code class="docutils literal notranslate"><span class="pre">x</span></code>). It is as if <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">n</span></code> is executed when <code class="docutils literal notranslate"><span class="pre">f(n)</span></code> is called. It doesn’t matter what the value was named in the call, inside the function its name is <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <div class="exercise admonition" id="exercise_3_2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 47 </span></p>
 <section id="exercise-content">
 <p>Use the function <code class="docutils literal notranslate"><span class="pre">f</span></code> to calculate:</p>
 <ol class="arabic simple">
@@ -564,7 +598,7 @@ round(number, ndigits=None)
 </div>
 <div class="solution dropdown admonition" id="chapter_3/notes-solution-3">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exercise_3_2"> Exercise 13</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercise_3_2"> Exercise 47</a></p>
 <section id="solution-content">
 <ol class="arabic simple">
 <li></li>
@@ -648,7 +682,7 @@ round(number, ndigits=None)
 </div>
 <div class="exercise admonition" id="exercise_3_3">
 
-<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 48 </span></p>
 <section id="exercise-content">
 <p>The function <code class="docutils literal notranslate"><span class="pre">number_of_digits</span></code> fails for arguments less than <code class="docutils literal notranslate"><span class="pre">1</span></code>. Write a new function <code class="docutils literal notranslate"><span class="pre">number_of_digits_2</span></code> which returns the correct number of digits for positive and negative values. For values between <code class="docutils literal notranslate"><span class="pre">-1</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> the function should return <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># write your function definition here</span>
@@ -663,7 +697,7 @@ round(number, ndigits=None)
 </div>
 <div class="solution dropdown admonition" id="chapter_3/notes-solution-5">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exercise_3_3"> Exercise 14</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercise_3_3"> Exercise 48</a></p>
 <section id="solution-content">
 <p>We can use the fact that a negative number <span class="math notranslate nohighlight">\(-n\)</span> has the same number of digits as the positive number <span class="math notranslate nohighlight">\(n\)</span>, using the <code class="docutils literal notranslate"><span class="pre">abs</span></code> function in the while loop to check whether the absolute value of the input is greater than 1.</p>
 </section>
@@ -690,14 +724,14 @@ round(number, ndigits=None)
 </div>
 <div class="exercise admonition" id="exercise_3_4">
 
-<p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 49 </span></p>
 <section id="exercise-content">
 <p>Use the function <code class="docutils literal notranslate"><span class="pre">number_of_digits_2</span></code> to calculate the total number of digits of all numbers in the range <span class="math notranslate nohighlight">\(-99 \leq n \leq 99\)</span>.</p>
 </section>
 </div>
 <div class="solution dropdown admonition" id="chapter_3/notes-solution-7">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exercise_3_4"> Exercise 15</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercise_3_4"> Exercise 49</a></p>
 <section id="solution-content">
 <p>Let’s follow the same structure:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
@@ -742,7 +776,7 @@ round(number, ndigits=None)
 </div>
 <div class="exercise admonition" id="exercise_3_5">
 
-<p class="admonition-title"><span class="caption-number">Exercise 16 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 50 </span></p>
 <section id="exercise-content">
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">total_digits_2(m,</span> <span class="pre">n)</span></code> which returns the total number of digits in all integers between <code class="docutils literal notranslate"><span class="pre">m</span></code> and <code class="docutils literal notranslate"><span class="pre">n</span></code> inclusive (you may assume that <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">&lt;</span> <span class="pre">n</span></code>).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># write your function definition here</span>
@@ -754,7 +788,7 @@ round(number, ndigits=None)
 </div>
 <div class="solution dropdown admonition" id="chapter_3/notes-solution-9">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#exercise_3_5"> Exercise 16</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#exercise_3_5"> Exercise 50</a></p>
 <section id="solution-content">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">number_of_digits_2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
@@ -806,6 +840,8 @@ round(number, ndigits=None)
 </pre></div>
 </div>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -839,20 +875,20 @@ round(number, ndigits=None)
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../chapter_2/notes.html"
+       href="../chapter_2/exercises.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Arrays and Plotting</p>
+        <p class="prev-next-title">Exercises</p>
       </div>
     </a>
     <a class="right-next"
-       href="../chapter_4/notes.html"
+       href="workshop.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lists and Strings</p>
+        <p class="prev-next-title">Workshop 3: Functions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

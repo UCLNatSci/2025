@@ -36,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=982b99e0" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom_styles.css?v=933d72f2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -189,7 +190,6 @@
 <li class="toctree-l3"><a class="reference internal" href="workshop_solutions.html">Workshop 1: Solutions</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="exercises.html">Exercises</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_2/notes.html">Arrays and Plotting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -419,11 +419,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-programming">Introduction to Programming</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-python">Introduction to Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radioactive-decay">Radioactive Decay</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">Pseudocode</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-collatz-problem">The Collatz Problem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops">Nested Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">Practice Exercises</a></li>
 </ul>
             </nav>
         </div>
@@ -437,8 +439,79 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="workshop-1-fundamentals">
 <h1>Workshop 1: Fundamentals<a class="headerlink" href="#workshop-1-fundamentals" title="Link to this heading">#</a></h1>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<section id="introduction-to-programming">
+<h2>Introduction to Programming<a class="headerlink" href="#introduction-to-programming" title="Link to this heading">#</a></h2>
+<p>A computer program is a sequence of simple instructions that a computer can understand. Consider a hypothetical programming language <em>Natscithon</em> consisting of the following four instructions.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Instruction</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>set x = ?</strong></p></td>
+<td><p>Set the variable <strong>x</strong> to the value <strong>?</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>display x</strong></p></td>
+<td><p>Display the value of variable <strong>x</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>increase x by ?</strong></p></td>
+<td><p>Increase the value of <strong>x</strong> by <strong>?</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>repeat while x &gt; ?</strong><br/>    <strong>[…]</strong></p></td>
+<td><p>Repeat the following instructions while <strong>x &gt; ?</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For example, the following <em>Natscithon</em> program:</p>
+<blockquote>
+<div><p><strong>set x = 3</strong><br/>
+<strong>repeat while x &lt; 6</strong><br/>
+<strong>    increase x by 1</strong><br/>
+<strong>    display x</strong><br/></p>
+</div></blockquote>
+<p>will produce the following output:</p>
+<blockquote>
+<div><p>4 <br/>
+5 <br/>
+6 <br/></p>
+</div></blockquote>
+<p>Check that you can understand why the program produces this output, then try the questions below. You will need pen and paper only for the questions in this section.</p>
+<div class="exercise admonition" id="chapter_1/workshop-exercise-0">
+
+<p class="admonition-title"><span class="caption-number">Exercise 7 </span></p>
+<section id="exercise-content">
+<p>The following <em>Natscithon</em> program performs a calculation that you (probably) first learnt at primary school. What will the output of the program be? what is the calculation?</p>
+<blockquote>
+<div><p><strong>set x = 13</strong><br/>
+<strong>repeat while x &gt; 4</strong><br/>
+<strong>    increase x by -4</strong><br/>
+<strong>display x</strong></p>
+</div></blockquote>
+</section>
+</div>
+<div class="exercise admonition" id="chapter_1/workshop-exercise-1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 8 </span></p>
+<section id="exercise-content">
+<p><span class="math notranslate nohighlight">\(13\)</span> divided by <span class="math notranslate nohighlight">\(4\)</span> is <span class="math notranslate nohighlight">\(3\)</span> remainder <span class="math notranslate nohighlight">\(1\)</span>. We say that <span class="math notranslate nohighlight">\(3\)</span> is the ‘integer part’ of the division.</p>
+<p>Write a <em>Natscithon</em> program which calculates and displays the integer part of <span class="math notranslate nohighlight">\(13\)</span> divided by <span class="math notranslate nohighlight">\(4\)</span>.</p>
+<blockquote>
+<div><p><strong>set x = 13</strong><br/>
+<em>…add your code here…</em></p>
+</div></blockquote>
+<p>Your program should produce the output:</p>
+<blockquote>
+<div><p>3</p>
+</div></blockquote>
+<p><em>Hint: adapt the code in the previous question by adding a new variable to keep track of the number of times the repeated section of code is executed</em>.</p>
+</section>
+</div>
+</section>
+<section id="introduction-to-python">
+<h2>Introduction to Python<a class="headerlink" href="#introduction-to-python" title="Link to this heading">#</a></h2>
+<p>In this section you’ll be working with Python code. Before you start, create a new Jupyter Notebook.</p>
 <p>We’ll start with a simple example of a Python program which simulates the growth in population of a colony of bacteria. Suppose we start with 100 cells and the population doubles every hour. How many hours will it take to reach a population of 10000 cells?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -483,7 +556,7 @@ document.write(`
 <p>When we run the code, we can see that it prints 7 values, so it must take 7 hours for the population to exceed 10000. But let’s adapt the code so that it prints this number. We’ll need to introduce a second variable to keep track of the number of hours:</p>
 <div class="exercise admonition" id="exercise_1_6">
 
-<p class="admonition-title"><span class="caption-number">Exercise 7 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 9 </span></p>
 <section id="exercise-content">
 <p>Replace the two comments in the code below so that it correctly prints the number of hours.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="mi">100</span>
@@ -501,7 +574,7 @@ document.write(`
 <p>Finally, suppose the the population growth rate is <span class="math notranslate nohighlight">\(1.02\)</span> rather than <span class="math notranslate nohighlight">\(2\)</span>.</p>
 <div class="exercise admonition" id="exercise_1_7">
 
-<p class="admonition-title"><span class="caption-number">Exercise 8 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 10 </span></p>
 <section id="exercise-content">
 <p>Change the code above so that the growth rate is <span class="math notranslate nohighlight">\(1.02\)</span>.</p>
 </section>
@@ -509,7 +582,7 @@ document.write(`
 <p>Because the growth rate is much slower, we’re getting to an enormous list of numbers. So let’s print it only once every 24 hours instead.</p>
 <div class="exercise admonition" id="exercise_1_8">
 
-<p class="admonition-title"><span class="caption-number">Exercise 9 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
 <section id="exercise-content">
 <p>Replace the line</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
@@ -532,7 +605,7 @@ document.write(`
 \[r = \left(\frac{1}{2}\right) ^ {1/t_\mathrm{half}}\]</div>
 <div class="exercise admonition" id="exercise_1_9">
 
-<p class="admonition-title"><span class="caption-number">Exercise 10 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
 <section id="exercise-content">
 <p>Use the formula above to calculate the daily decay rate of Iodine-131.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">half_life</span> <span class="o">=</span> <span class="mf">8.02</span>
@@ -544,14 +617,14 @@ document.write(`
 <p>Now let’s suppose we have a sample of I-131 with an initial activity of <span class="math notranslate nohighlight">\(1.67 \times 10^{12}~\mathrm{Bq}\)</span>.</p>
 <div class="exercise admonition" id="exercise_1_10">
 
-<p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
 <section id="exercise-content">
 <p>Write a program which calculates the number of days it takes for the sample to reach an activity of <span class="math notranslate nohighlight">\(10000\)</span> Becquerels. What is the activity after <span class="math notranslate nohighlight">\(8\)</span> days? What value would you expect?</p>
 </section>
 </div>
 <div class="exercise admonition" id="exercise_1_11">
 
-<p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
 <section id="exercise-content">
 <p>Change your code so that it prints the activity of the sample once every 7 days.</p>
 </section>
@@ -605,14 +678,14 @@ repeat until activity is less than 10000:<br />
 \[5, 16, 8, 4, 2, 1.\]</div>
 <div class="exercise admonition" id="exercise_1_12">
 
-<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
 <section id="exercise-content">
 <p>Using pen and paper, write pseudocode for a program which prints the Collatz Sequence for <span class="math notranslate nohighlight">\(n = 5\)</span>.</p>
 </section>
 </div>
 <div class="exercise admonition" id="exercise_1_13">
 
-<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 16 </span></p>
 <section id="exercise-content">
 <p>Use your answer to the previous question to write a program which generates the Collatz Sequence for any given positive integer <span class="math notranslate nohighlight">\(n\)</span>. For example,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
@@ -634,7 +707,7 @@ repeat until activity is less than 10000:<br />
 <p>Given a positive integer <span class="math notranslate nohighlight">\(n\)</span>, define the <em>Collatz Number</em> to be the length of the Collatz Sequence for <span class="math notranslate nohighlight">\(n\)</span>. For example, the Collatz number of 5 is 6.</p>
 <div class="exercise admonition" id="exercise_1_14">
 
-<p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 17 </span></p>
 <section id="exercise-content">
 <p>Write a program which calculates and prints the Collatz number of a given number <span class="math notranslate nohighlight">\(n\)</span>. For example,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
@@ -646,13 +719,6 @@ repeat until activity is less than 10000:<br />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">Collatz</span> <span class="n">number</span> <span class="n">of</span> <span class="mi">5</span> <span class="ow">is</span> <span class="mi">6</span>
 </pre></div>
 </div>
-</section>
-</div>
-<div class="exercise admonition" id="exercise_1_15">
-
-<p class="admonition-title"><span class="caption-number">Exercise 16 </span> (Challenge)</p>
-<section id="exercise-content">
-<p>Write a program which finds the smallest number <span class="math notranslate nohighlight">\(n\)</span> whose Collatz Number is greater than 200.</p>
 </section>
 </div>
 </section>
@@ -686,7 +752,7 @@ repeat until activity is less than 10000:<br />
 </div>
 <div class="exercise admonition" id="exercise_1_16">
 
-<p class="admonition-title"><span class="caption-number">Exercise 17 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 18 </span></p>
 <section id="exercise-content">
 <p>Write a program which uses nested loops to print the following patterns:</p>
 <p>a)</p>
@@ -715,6 +781,144 @@ repeat until activity is less than 10000:<br />
 <span class="n">BBBBBB</span>
 </pre></div>
 </div>
+</section>
+</div>
+<div class="exercise admonition" id="exercise_1_15">
+
+<p class="admonition-title"><span class="caption-number">Exercise 19 </span> (Challenge)</p>
+<section id="exercise-content">
+<p>Write a program which finds the smallest number <span class="math notranslate nohighlight">\(n\)</span> whose Collatz Number is greater than 200.</p>
+</section>
+</div>
+</section>
+<section id="practice-exercises">
+<h2>Practice Exercises<a class="headerlink" href="#practice-exercises" title="Link to this heading">#</a></h2>
+<p>The following exercises provide further practice of this week’s material.</p>
+<div class="exercise admonition" id="calculations_extra_digits">
+
+<p class="admonition-title"><span class="caption-number">Exercise 20 </span></p>
+<section id="exercise-content">
+<p>We can calculate how many digits there are in a number by repeatedly dividing by 10 until the number is less than one. The number of divisions is the number of digits in the number. For example, the number <span class="math notranslate nohighlight">\(8468\)</span> has four digits:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}8468 \div 10 = 846.8\\
+846.8 \div 10 = 84.68\\
+84.68 \div 10 = 8.468\\
+8.468 \div 10 = 0.8468\end{split}\]</div>
+<ol class="arabic simple">
+<li><p>Write pseudo-code for this calculation for a general number <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
+<li><p>Write a Python program to implement it, displaying the result in the format <code class="docutils literal notranslate"><span class="pre">1234</span> <span class="pre">has</span> <span class="pre">4</span> <span class="pre">digits.</span></code></p></li>
+<li><p>Test your program with a variety of numbers.</p></li>
+<li><p>Extend your program so that it works for negative numbers.</p></li>
+</ol>
+</section>
+</div>
+<div class="exercise admonition" id="calculations_extra_factorial">
+
+<p class="admonition-title"><span class="caption-number">Exercise 21 </span></p>
+<section id="exercise-content">
+<p>Recall the definition of factorial of a number <span class="math notranslate nohighlight">\(n\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[n! = n \times (n-1) \times \ldots \times 2 \times 1.\]</div>
+<p>We can calculate the factorial of <span class="math notranslate nohighlight">\(n\)</span> by repeated multiplation.</p>
+<p>Write pseudocode for this computation then write Python code that calculates the factorial of any given number.</p>
+</section>
+</div>
+<div class="exercise admonition" id="calculations_extra_quadratic">
+
+<p class="admonition-title"><span class="caption-number">Exercise 22 </span></p>
+<section id="exercise-content">
+<p>Write a program which use the quadratic formula to print the solution to the quadratic equation <span class="math notranslate nohighlight">\(ax^2 + bx + c = 0\)</span>, given variables <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code>. Your program should print:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">solutions</span> <span class="n">are</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">solution</span> <span class="ow">is</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">There</span> <span class="n">are</span> <span class="n">no</span> <span class="n">real</span> <span class="n">solutions</span>
+</pre></div>
+</div>
+<p>(Hint: first calculate the discriminant <span class="math notranslate nohighlight">\(b^2-4ac\)</span>).</p>
+</section>
+</div>
+<div class="exercise admonition" id="calculations_extra_division">
+
+<p class="admonition-title"><span class="caption-number">Exercise 23 </span></p>
+<section id="exercise-content">
+<p>Given two integers <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(m\)</span> it is possible to perform division-with-remainder by repeatedly subtracting <span class="math notranslate nohighlight">\(m\)</span> from <span class="math notranslate nohighlight">\(n\)</span> until the result is less than <span class="math notranslate nohighlight">\(m\)</span>. For example, to calculate 13 divided by 3:</p>
+<p>13 - 3 = 10<br />
+10 - 3 = 7<br />
+7 - 3 = 4<br />
+4 - 3 = 1</p>
+<p>13 divided by 3 equals 4 remainder 1.</p>
+<ol class="arabic simple">
+<li><p>Write pseudocode for a program which performs this calulation.</p></li>
+<li><p>Turn your pseudocode into a Python program. The result of the calculation should be displayed in words as above.</p></li>
+</ol>
+<p>(hint: you’ll need to create an extra variable to store the original value of <code class="docutils literal notranslate"><span class="pre">n</span></code>).</p>
+</section>
+</div>
+<div class="exercise admonition" id="calculations_extra_duration">
+
+<p class="admonition-title"><span class="caption-number">Exercise 24 </span></p>
+<section id="exercise-content">
+<p>A duration <code class="docutils literal notranslate"><span class="pre">t</span></code> in seconds can be converted to days, hours, minutes and seconds using integer division:</p>
+<ol class="arabic simple">
+<li><p>Divide <code class="docutils literal notranslate"><span class="pre">t</span></code> by 60; set <code class="docutils literal notranslate"><span class="pre">t</span></code> to the quotient and call the remainder <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p></li>
+<li><p>Divide <code class="docutils literal notranslate"><span class="pre">t</span></code> by 60; set <code class="docutils literal notranslate"><span class="pre">t</span></code> to the quotient and call the remainder <code class="docutils literal notranslate"><span class="pre">m</span></code>.</p></li>
+<li><p>Divide <code class="docutils literal notranslate"><span class="pre">t</span></code> by 24; set <code class="docutils literal notranslate"><span class="pre">d</span></code> to the quotient and call the remainder <code class="docutils literal notranslate"><span class="pre">h</span></code>.</p></li>
+</ol>
+<p>Calculate the number of days, hours, minutes and seconds in one million seconds. Display the result as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1000000</span> <span class="n">seconds</span> <span class="ow">is</span> <span class="n">xx</span> <span class="n">days</span> <span class="n">H</span><span class="p">:</span><span class="n">M</span><span class="p">:</span><span class="n">S</span>
+</pre></div>
+</div>
+</section>
+</div>
+<div class="exercise admonition" id="calculations_extra_primes">
+
+<p class="admonition-title"><span class="caption-number">Exercise 25 </span></p>
+<section id="exercise-content">
+<p>A student has written the pseudocode below to test if a number <span class="math notranslate nohighlight">\(n\)</span> is a prime number.</p>
+<ol class="arabic simple">
+<li><p>There are <strong>two</strong> errors in the pseudocode. Find them and fix them.</p></li>
+<li><p>Use the corrected pseudocode to write Python code which tests if a whole number <code class="docutils literal notranslate"><span class="pre">n</span></code> is prime.</p></li>
+<li><p>Extend your Python code so that it calculates the number of prime numbers strictly less than a given number <code class="docutils literal notranslate"><span class="pre">n</span></code>. For example, if <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">7</span></code> then your program should print <code class="docutils literal notranslate"><span class="pre">3</span></code>  since there are three prime numbers strictly less than 7 (2, 3, and 5).</p></li>
+</ol>
+<p>NB Python has keywords <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> which represent Boolean (True/False) values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Prime number test</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="pseudocode docutils">
+<p class="sd-card-text">set value of n<br />
+set result to True<br />
+set i to 1<br />
+repeat while i is less than n:<br />
+    if n is divisible by i<br />
+         set result to False<br />
+         increase i by 1<br />
+display result</p>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="calculations_extra_gcd">
+
+<p class="admonition-title"><span class="caption-number">Exercise 26 </span></p>
+<section id="exercise-content">
+<p>The <strong>Euclidean algorithm</strong> is a method that will find the highest common factor (HCF) of two numbers. The HCF is the largest number that will evenly divide (wihout remainder) both values. For example, The HCF of 5 and 15 is 5.</p>
+<p>Write Python code which calculates the HCF of two numbers <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<ul class="simple">
+<li><p>identify the smaller value and subtract it from the larger value. Replace the larger number with the result of the subtraction.</p></li>
+<li><p>repeat the two steps until the values are equal. This value is the HCF of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></li>
+</ul>
 </section>
 </div>
 </section>
@@ -776,25 +980,6 @@ repeat until activity is less than 10000:<br />
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radioactive-decay">Radioactive Decay</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">Pseudocode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-collatz-problem">The Collatz Problem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops">Nested Loops</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

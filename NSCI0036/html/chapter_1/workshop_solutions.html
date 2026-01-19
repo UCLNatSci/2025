@@ -36,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=982b99e0" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom_styles.css?v=933d72f2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -63,7 +64,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_1/workshop_solutions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Exercises" href="exercises.html" />
+    <link rel="next" title="Arrays and Plotting" href="../chapter_2/notes.html" />
     <link rel="prev" title="Workshop 1: Fundamentals" href="workshop.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -189,7 +190,6 @@
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Workshop 1: Solutions</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="exercises.html">Exercises</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_2/notes.html">Arrays and Plotting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -429,6 +429,15 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8">Exercise 8</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9">Exercise 9</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10">Exercise 10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11">Exercise 11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-12">Exercise 12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-13">Exercise 13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-14">Exercise 14</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-15">Exercise 15</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-16">Exercise 16</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-17">Exercise 17</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-18">Exercise 18</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-19">Exercise 19</a></li>
 </ul>
             </nav>
         </div>
@@ -444,6 +453,25 @@ document.write(`
 <h1>Workshop 1: Solutions<a class="headerlink" href="#workshop-1-solutions" title="Link to this heading">#</a></h1>
 <section id="exercise-1">
 <h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h2>
+<p>The program will display</p>
+<blockquote>
+<div><p>1</p>
+</div></blockquote>
+<p>The program calculates the remainder after dividing <span class="math notranslate nohighlight">\(13\)</span> by <span class="math notranslate nohighlight">\(4\)</span>.</p>
+</section>
+<section id="exercise-2">
+<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>set x = 13</strong><br/>
+<strong>set c = 0</strong><br/>
+<strong>repeat while x &gt; 4</strong><br/>
+     <strong>increase x by -4</strong><br/>
+     <strong>increase c by 1</strong><br/>
+<strong>display c</strong></p>
+</div></blockquote>
+</section>
+<section id="exercise-3">
+<h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="mi">100</span>
@@ -471,8 +499,8 @@ Number of hours: 7
 </div>
 </div>
 </section>
-<section id="exercise-2">
-<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h2>
+<section id="exercise-4">
+<h2>Exercise 4<a class="headerlink" href="#exercise-4" title="Link to this heading">#</a></h2>
 <div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="mi">100</span>
@@ -726,8 +754,8 @@ Number of hours: 233
 </div>
 </div>
 </section>
-<section id="exercise-3">
-<h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Link to this heading">#</a></h2>
+<section id="exercise-5">
+<h2>Exercise 5<a class="headerlink" href="#exercise-5" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="mi">100</span>
@@ -758,8 +786,8 @@ Number of hours: 233
 </div>
 </div>
 </section>
-<section id="exercise-4">
-<h2>Exercise 4<a class="headerlink" href="#exercise-4" title="Link to this heading">#</a></h2>
+<section id="exercise-6">
+<h2>Exercise 6<a class="headerlink" href="#exercise-6" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">half_life</span> <span class="o">=</span> <span class="mf">8.02</span>
@@ -775,8 +803,8 @@ Number of hours: 233
 </div>
 </div>
 </section>
-<section id="exercise-5">
-<h2>Exercise 5<a class="headerlink" href="#exercise-5" title="Link to this heading">#</a></h2>
+<section id="exercise-7">
+<h2>Exercise 7<a class="headerlink" href="#exercise-7" title="Link to this heading">#</a></h2>
 <p>We would expect that after 8 days the activity would have approximately halved (<span class="math notranslate nohighlight">\(8.35 \times 10^{11}~\mathrm{Bq}\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -805,8 +833,8 @@ Days taken to reach 10000 Becquerels: 220
 </div>
 </div>
 </section>
-<section id="exercise-6">
-<h2>Exercise 6<a class="headerlink" href="#exercise-6" title="Link to this heading">#</a></h2>
+<section id="exercise-8">
+<h2>Exercise 8<a class="headerlink" href="#exercise-8" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># starting conditions</span>
@@ -864,8 +892,8 @@ Days taken to reach 10000 Becquerels: 220
 </div>
 </div>
 </section>
-<section id="exercise-7">
-<h2>Exercise 7<a class="headerlink" href="#exercise-7" title="Link to this heading">#</a></h2>
+<section id="exercise-9">
+<h2>Exercise 9<a class="headerlink" href="#exercise-9" title="Link to this heading">#</a></h2>
 <div class="pseudocode docutils">
 <p>set n to 5<br />
 repeat while n is greater than 1:<br />
@@ -876,8 +904,8 @@ repeat while n is greater than 1:<br />
     display n</p>
 </div>
 </section>
-<section id="exercise-8">
-<h2>Exercise 8<a class="headerlink" href="#exercise-8" title="Link to this heading">#</a></h2>
+<section id="exercise-10">
+<h2>Exercise 10<a class="headerlink" href="#exercise-10" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
@@ -905,8 +933,8 @@ repeat while n is greater than 1:<br />
 </div>
 </div>
 </section>
-<section id="exercise-9">
-<h2>Exercise 9<a class="headerlink" href="#exercise-9" title="Link to this heading">#</a></h2>
+<section id="exercise-11">
+<h2>Exercise 11<a class="headerlink" href="#exercise-11" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
@@ -937,8 +965,8 @@ repeat while n is greater than 1:<br />
 </div>
 </div>
 </section>
-<section id="exercise-10">
-<h2>Exercise 10<a class="headerlink" href="#exercise-10" title="Link to this heading">#</a></h2>
+<section id="exercise-12">
+<h2>Exercise 12<a class="headerlink" href="#exercise-12" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">6</span>
@@ -1013,39 +1041,288 @@ BBBBBB
 </div>
 </div>
 </div>
-<!-- :::{solution} exercise_1_15
-To do this we need to 'nest' one while loop (to calculate Collatz numbers) inside another one (to check each if each integer meets the condition).
+</section>
+<section id="exercise-13">
+<h2>Exercise 13<a class="headerlink" href="#exercise-13" title="Link to this heading">#</a></h2>
+<p>To do this we need to nest one while loop (to calculate Collatz numbers) inside another one (to check each if each integer meets the condition).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">collatz_num</span> <span class="o">=</span> <span class="mi">1</span>
 
-```
-k = 1
-collatz_num = 1
+<span class="k">while</span> <span class="p">(</span><span class="n">collatz_num</span> <span class="o">&lt;=</span> <span class="mi">200</span><span class="p">):</span> <span class="c1">#outer while loop</span>
+    <span class="c1">#increase k by 1, reset collatz_num</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">collatz_num</span> <span class="o">=</span> <span class="mi">1</span>
 
-while (collatz_num <= 200): #outer while loop
-    #increase k by 1, reset collatz_num
-    k = k + 1
-    collatz_num = 1
+    <span class="c1">#remember we don&#39;t want to change k itself - or we wouldn&#39;t know what numbers we&#39;d already checked</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">k</span>
 
-    #remember we don't want to change k itself - or we wouldn't know what numbers we'd already checked
-    n = k
+    <span class="c1">#now find the Collatz number of k</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># n is even, divide by two</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># n is odd, triple and add one</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 
-    #now find the Collatz number of k
-    while (n > 1):
-        if (n % 2) == 0:
-            # n is even, divide by two
-            n = n / 2
-        else:
-            # n is odd, triple and add one
-            n = (n * 3) + 1
+        <span class="n">collatz_num</span> <span class="o">=</span> <span class="n">collatz_num</span> <span class="o">+</span> <span class="mi">1</span>
 
-        collatz_num = collatz_num + 1
+<span class="c1"># Once the condition has been met, we&#39;re finished</span>
 
-# Once the condition has been met, let's say that we are finished
-print('The Collatz number of', k, 'is', collatz_num)
-print(k, 'is the smallest number whose Collatz number is greater than 200') 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The Collatz number of&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="n">collatz_num</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;is the smallest number whose Collatz number is greater than 200&#39;</span><span class="p">)</span> 
 
-```
-:::
---></section>
+</pre></div>
+</div>
+</section>
+<section id="exercise-14">
+<h2>Exercise 14<a class="headerlink" href="#exercise-14" title="Link to this heading">#</a></h2>
+<p>This is one way to write the pseudocode. Yours might be different. If you gave your pseudocode to your friend, could they easily turn it into a Python program?</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="pseudocode docutils">
+<p class="sd-card-text">Set value of n<br />
+Set n_digits to 0<br />
+While n is greater than or equal to 1:<br />
+    Divide n by 10<br />
+    Add 1 to n_digits<br />
+Display n_digits</p>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input n</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1234</span>
+
+<span class="c1"># Set n_digits to 0</span>
+<span class="n">n_digits</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Extra step to remember starting value</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">n</span>
+
+<span class="k">while</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">10</span>                 <span class="c1"># Divide n by 10</span>
+    <span class="n">n_digits</span> <span class="o">=</span> <span class="n">n_digits</span> <span class="o">+</span> <span class="mi">1</span>    <span class="c1"># Add 1 to n_digits</span>
+
+<span class="c1"># Output n_digits</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="s2">&quot;has&quot;</span><span class="p">,</span> <span class="n">n_digits</span><span class="p">,</span> <span class="s2">&quot;digits.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1234 has 4 digits.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s think about how we can change the pseudo-code so that the program works for negative numbers.</p>
+<p>We know that a negative number, <span class="math notranslate nohighlight">\(-n\)</span>, has the same number of digits as the positive number <span class="math notranslate nohighlight">\(n\)</span>. So to make the program work for negative numbers, we just need to check whether the input is negative, and if it is, turn it into a positive number with the same number of digits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input n</span>
+<span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="c1"># Extra step to remember starting value</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">n</span>
+
+<span class="c1"># Check if n is negative</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span> <span class="c1"># Make n positive</span>
+
+<span class="c1"># Set n_digits to 0</span>
+<span class="n">n_digits</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">10</span>                 <span class="c1"># Divide n by 10</span>
+    <span class="n">n_digits</span> <span class="o">=</span> <span class="n">n_digits</span> <span class="o">+</span> <span class="mi">1</span>    <span class="c1"># Add 1 to n_digits</span>
+
+<span class="c1"># Output n_digits</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="s2">&quot;has&quot;</span><span class="p">,</span> <span class="n">n_digits</span><span class="p">,</span> <span class="s2">&quot;digits.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1 has 1 digits.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-15">
+<h2>Exercise 15<a class="headerlink" href="#exercise-15" title="Link to this heading">#</a></h2>
+<p>Pseudocode:</p>
+<div class="pseudocode docutils">
+<p>Set n to 10<br />
+Set f to 1<br />
+Repeat until n equals 1:<br />
+    Set f to f times n<br />
+    Decrease n by 1<br />
+Print f</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">f</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1"># or n -= 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3628800
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-16">
+<h2>Exercise 16<a class="headerlink" href="#exercise-16" title="Link to this heading">#</a></h2>
+<p>NB You should test your answer with a variety of values for <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">c</span></code> to check that it is working correctly. At least one test for each of the three type of solution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">12</span>
+
+<span class="n">discriminant</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span>
+
+<span class="k">if</span> <span class="n">discriminant</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The solutions are x =&quot;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">discriminant</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">),</span> <span class="s2">&quot;and x =&quot;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">discriminant</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">))</span>
+<span class="k">elif</span> <span class="n">discriminant</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The solution is x =&quot;</span><span class="p">,</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are no real solutions&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The solutions are x = 4.0 and x = -3.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-17">
+<h2>Exercise 17<a class="headerlink" href="#exercise-17" title="Link to this heading">#</a></h2>
+<div class="pseudocode docutils">
+<p>Set value of n<br />
+Set value of m<br />
+Set i to 0<br />
+Repeat while n is greater than m:<br />
+    Subtract m from n<br />
+    Increase i by 1<br />
+Display i and n</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">n_original</span> <span class="o">=</span> <span class="n">n</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n_original</span><span class="p">,</span> <span class="s2">&quot;divided by&quot;</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="s2">&quot;equals&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;remainder&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13 divided by 3 equals 4 remainder 1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-18">
+<h2>Exercise 18<a class="headerlink" href="#exercise-18" title="Link to this heading">#</a></h2>
+<p>It should be reasonably easy to follow the instructions in order to produce the correct code to perform the calculation. The only tricky part is to maintain the original value of <code class="docutils literal notranslate"><span class="pre">t</span></code> in a new variable <code class="docutils literal notranslate"><span class="pre">t_orig</span></code> so that we can include it in the final print statement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">t_orig</span> <span class="o">=</span> <span class="n">t</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">60</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">//</span> <span class="mi">60</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">60</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">//</span> <span class="mi">60</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">24</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">t</span> <span class="o">//</span> <span class="mi">24</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">t_orig</span><span class="p">,</span> <span class="s2">&quot; seconds is &quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="s2">&quot; days &quot;</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000000 seconds is 11 days 13:46:40
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-19">
+<h2>Exercise 19<a class="headerlink" href="#exercise-19" title="Link to this heading">#</a></h2>
+<p>1. The corrected psuedocode is shown below.</p>
+<div class = "pseudocode">
+set value of n<br/>  
+set result to True<br/>  
+set i to <s>1</s> 2  <span style="color:red"><- this number should be 2, not 1</span><br/>  
+repeat while i is less than n:<br/>  
+&nbsp;&nbsp;&nbsp;&nbsp;if n is divisible by i<br/>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set result to False<br/>  
+&nbsp;&nbsp;&nbsp;&nbsp;increase i by 1  <span style="color:red"><- this line should be indented so that it is not part of the if block</span><br/>  
+display result<br/>  
+</div>
+<p>2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">11</span> <span class="c1"># pick any number</span>
+<span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>3.</p>
+<p>This is tricky! One possible solution is shown below. We introduce two new variables: <code class="docutils literal notranslate"><span class="pre">c</span></code> which keeps a running total of the number of primes, and <code class="docutils literal notranslate"><span class="pre">m</span></code> which runs from <code class="docutils literal notranslate"><span class="pre">2</span></code> to <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">-</span> <span class="pre">1</span></code>. For each value, test if <code class="docutils literal notranslate"><span class="pre">m</span></code> is prime and if so increase <code class="docutils literal notranslate"><span class="pre">c</span></code> by one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># new variable to count the number of primes</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># this variable replaces the previous variable n</span>
+<span class="k">while</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">:</span>    
+        <span class="k">if</span> <span class="n">m</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span> <span class="c1"># if n is prime, increase c by 1</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1088,11 +1365,11 @@ print(k, 'is the smallest number whose Collatz number is greater than 200')
       </div>
     </a>
     <a class="right-next"
-       href="exercises.html"
+       href="../chapter_2/notes.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Exercises</p>
+        <p class="prev-next-title">Arrays and Plotting</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1122,6 +1399,15 @@ print(k, 'is the smallest number whose Collatz number is greater than 200')
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8">Exercise 8</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9">Exercise 9</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-10">Exercise 10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11">Exercise 11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-12">Exercise 12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-13">Exercise 13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-14">Exercise 14</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-15">Exercise 15</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-16">Exercise 16</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-17">Exercise 17</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-18">Exercise 18</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-19">Exercise 19</a></li>
 </ul>
   </nav></div>
 

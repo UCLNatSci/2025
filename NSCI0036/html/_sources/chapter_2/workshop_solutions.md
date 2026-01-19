@@ -197,6 +197,39 @@ plt.legend()
 
 ## Exercise 7
 
+```{code-cell} ipython3
+n = 200
+g = 9.81
+dt = .1
+
+theta = np.pi / 4
+s = 100
+
+
+x = np.zeros(n)
+y = np.zeros(n)
+u = np.zeros(n)
+v = np.zeros(n)
+
+# initialise the variables
+u[0] = np.cos(theta) * s
+v[0] = np.sin(theta) * s
+
+# implement equations
+for i in range(n - 1):
+    x[i+1] = x[i] + u[i] * dt
+    y[i+1] = y[i] + v[i] * dt
+    u[i+1] = u[i]
+    v[i+1] = v[i] - g * dt
+
+plt.plot(x, y)
+plt.xlabel("x")
+plt.ylabel("y")
+plt.title("Cannonball trajectory")
+```
+
+## Exercise 8
+
 
 ```{code-cell} ipython3
 n = 200
@@ -229,4 +262,119 @@ plt.plot(x, y)
 plt.xlabel("x")
 plt.ylabel("y")
 plt.title("Cannonball trajectory")
+```
+
+## Exercise 9
+
+See separate document.
+
+## Exericse 10
+
+**Part 1**
+
+```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+
+n = 60
+g = 9.81
+dt = .2
+d = 0.25
+theta = np.pi / 6
+s = 80
+
+x = np.zeros(n)
+y = np.zeros(n)
+u = np.zeros(n)
+v = np.zeros(n)
+
+# initialise the variables
+u[0] = np.cos(theta) * s
+v[0] = np.sin(theta) * s
+
+# implement equations
+for i in range(n - 1):
+    x[i+1] = x[i] + u[i] * dt
+    y[i+1] = y[i] + v[i] * dt
+    u[i+1] = u[i] - d*u[i] * dt
+    v[i+1] = v[i] - g * dt - d*v[i] * dt
+    if y[i+1] < 0: # set to zero if negative
+        x[i+1] = x[i]
+        y[i+1] = 0
+        u[i+1] = 0
+        v[i+1] = 0
+
+t = np.linspace(0, 60*dt, n)
+
+plt.figure(figsize=(6,4))
+plt.plot(t, x, label="x")
+plt.plot(t, y, label="y")
+plt.xlabel("time (s)")
+plt.ylabel("position (m)")
+plt.title("Cannonball trajectory")
+plt.legend()
+
+plt.figure(figsize=(4,4))
+plt.plot(x, y)
+plt.xlabel("x (m)")
+plt.ylabel("y (m)")
+plt.title("Cannonball trajectory")
+
+print("Horizontal distance travelled:", x[n-1])
+```
+
+**Part 2**
+
+```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+
+n = 60
+g = 9.81
+dt = .2
+d = 0.25
+theta = np.pi / 6
+s = 80
+
+theta_values = np.linspace(0, np.pi/2, 50)
+distance_travelled = np.zeros(50)
+
+for j in range(50):
+    theta = theta_values[j]
+
+    x = np.zeros(n)
+    y = np.zeros(n)
+    u = np.zeros(n)
+    v = np.zeros(n)
+
+    # initialise the variables
+    u[0] = np.cos(theta) * s
+    v[0] = np.sin(theta) * s
+
+    # implement equations
+    for i in range(n - 1):
+        x[i+1] = x[i] + u[i] * dt
+        y[i+1] = y[i] + v[i] * dt
+        u[i+1] = u[i] - d*u[i] * dt
+        v[i+1] = v[i] - g * dt - d*v[i] *dt
+        if y[i+1] < 0: # set to zero if negative
+            x[i+1] = x[i]
+            y[i+1] = 0
+            u[i+1] = 0
+            v[i+1] = 0
+
+    distance_travelled[j] = x[n-1]
+
+plt.plot(theta_values, distance_travelled)
+plt.title("Horizontal distance travelled by the cannonball")
+plt.xlabel("Launch angle (radians)")
+plt.ylabel("Distance travelled (m)")
+
+# determine the index corresponding to the maximum distance
+index = np.argmax(distance_travelled)
+# find the corresponding value of theta
+theta_max = theta_values[index]
+
+print(distance_travelled)
+print("Angle that maximises horizontal distance:", theta_max, "radians, ", theta_max * 180 / np.pi, "degrees")
 ```

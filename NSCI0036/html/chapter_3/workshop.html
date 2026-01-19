@@ -36,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=982b99e0" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom_styles.css?v=933d72f2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -189,7 +190,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../chapter_1/workshop_solutions.html">Workshop 1: Solutions</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_1/exercises.html">Exercises</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../chapter_2/notes.html">Arrays and Plotting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -446,7 +446,7 @@ document.write(`
 <p>The number of terms in the Collatz Sequence starting with <span class="math notranslate nohighlight">\(n\)</span> is the Collatz Number of <span class="math notranslate nohighlight">\(n\)</span>. For example, for <span class="math notranslate nohighlight">\(n = 5\)</span> the Collatz Sequence is <span class="math notranslate nohighlight">\(5, 16, 8, 4, 2, 1\)</span> and the Collatz Number is <span class="math notranslate nohighlight">\(6\)</span>.</p>
 <div class="exercise admonition" id="exercise_3_6">
 
-<p class="admonition-title"><span class="caption-number">Exercise 45 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 51 </span></p>
 <section id="exercise-content">
 <p>Define a function <code class="docutils literal notranslate"><span class="pre">collatz_op(n)</span></code> that returns the next number in the Collatz Sequence. Check that your function returns the correct result for <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">6</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">collatz_op</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -457,7 +457,7 @@ document.write(`
 </div>
 <div class="exercise admonition" id="exercise_3_7">
 
-<p class="admonition-title"><span class="caption-number">Exercise 46 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 52 </span></p>
 <section id="exercise-content">
 <p>Define a function <code class="docutils literal notranslate"><span class="pre">collatz_number</span></code> that returns the Collatz Number of <code class="docutils literal notranslate"><span class="pre">n</span></code>. Your function should use the function <code class="docutils literal notranslate"><span class="pre">collatz_op</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">collatz_number</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -473,7 +473,7 @@ document.write(`
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Collatz_conjecture">Wikipedia article</a> for the Collatz Conjecture contains <a class="reference external" href="https://en.wikipedia.org/wiki/Collatz_conjecture#/media/File:Collatz5.svg">a graph</a> of the first <span class="math notranslate nohighlight">\(100\)</span> Collatz Numbers.</p>
 <div class="exercise admonition" id="exercise_3_8">
 
-<p class="admonition-title"><span class="caption-number">Exercise 47 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 53 </span></p>
 <section id="exercise-content">
 <p>Create an array containing the first <span class="math notranslate nohighlight">\(100\)</span> Collatz numbers. Then plot a line graph like the one in the Wikipedia article.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">collatz_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -496,7 +496,7 @@ I_{i+1} &amp;= I_i + bS_iI_i - aI_i.\end{align}\end{split}\]</div>
 <p>Through policy interventions, the Government can influence the value of the parameter <span class="math notranslate nohighlight">\(b\)</span>. The government would like to understand how the value of <span class="math notranslate nohighlight">\(b\)</span> affects the peak number of infections.</p>
 <div class="exercise admonition" id="exercise_3_9">
 
-<p class="admonition-title"><span class="caption-number">Exercise 48 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 54 </span></p>
 <section id="exercise-content">
 <p>Complete the code below so that it simulates the epidemic for 100 days using the parameter values <span class="math notranslate nohighlight">\(a = 0.1\)</span> and <span class="math notranslate nohighlight">\(b = 0.00005\)</span>, and initial populations <span class="math notranslate nohighlight">\(S_0 = 20000\)</span> and <span class="math notranslate nohighlight">\(I_0 = 100\)</span>. You can reuse your code from last week’s exercise.</p>
 <p>Then use the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> function <code class="docutils literal notranslate"><span class="pre">np.max</span></code> to calculate peak infections (the maximum value of the array <code class="docutils literal notranslate"><span class="pre">I</span></code>).</p>
@@ -516,7 +516,7 @@ I_{i+1} &amp;= I_i + bS_iI_i - aI_i.\end{align}\end{split}\]</div>
 <p>Next, we’d like to produce a graph which shows how peak infections varies with the value of the infection rate parameter <code class="docutils literal notranslate"><span class="pre">b</span></code>. To do this, we will write a function <code class="docutils literal notranslate"><span class="pre">max_infected(a,</span> <span class="pre">b)</span></code> which calculates and returns the peak infections.</p>
 <div class="exercise admonition" id="exercise_3_10">
 
-<p class="admonition-title"><span class="caption-number">Exercise 49 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 55 </span></p>
 <section id="exercise-content">
 <ol class="arabic simple">
 <li><p>Write a function <code class="docutils literal notranslate"><span class="pre">max_infected(a,</span> <span class="pre">b)</span></code> which calculates and returns the maximum number of infected people over the course of the epidemic given parameter values <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>. Check that your function returns the expected values for <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">0.1</span></code> and various values of <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></li>
@@ -547,7 +547,7 @@ I_{i+1} &amp;= I_i + bS_iI_i - aI_i.\end{align}\end{split}\]</div>
 <p>As well as the peak number of infected people, the government is interested in the <em>total</em> amount of medical care that will be required over the course of the epidemic. Assuming that each day, every infected person has an equal and independent probability of requiring medical care, then the total cost of medical care will be proportional to the sum of the number of infected people over all days. We call this the <em>infected person-days</em> and is simply the sum values in the array <code class="docutils literal notranslate"><span class="pre">I</span></code>.</p>
 <div class="exercise admonition" id="exercise_3_11">
 
-<p class="admonition-title"><span class="caption-number">Exercise 50 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 56 </span></p>
 <section id="exercise-content">
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">total_infected(a,</span> <span class="pre">b)</span></code> which calculates and returns the total number of infected person-days for the duration of the epidemic.</p>
 <p>Then, plot the total number of infections against <span class="math notranslate nohighlight">\(b\)</span> for values between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(0.00005\)</span>.</p>
@@ -563,7 +563,7 @@ I_{i+1} &amp;= I_i + bS_iI_i - aI_i.\end{align}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(I\)</span> is the total number infected person-days.</p>
 <div class="exercise admonition" id="exercise_3_12">
 
-<p class="admonition-title"><span class="caption-number">Exercise 51 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 57 </span></p>
 <section id="exercise-content">
 <p>Calculate arrays <code class="docutils literal notranslate"><span class="pre">intervention_cost</span></code>, <code class="docutils literal notranslate"><span class="pre">medical_cost</span></code> containing the intervention and medical costs respectively over the range of <code class="docutils literal notranslate"><span class="pre">b</span></code> from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(0.0005\)</span>. Assume <span class="math notranslate nohighlight">\(a = 0.1\)</span></p>
 <p>Calculate an array <code class="docutils literal notranslate"><span class="pre">total_cost</span></code> which is the sum of the intervention and medical costs.</p>

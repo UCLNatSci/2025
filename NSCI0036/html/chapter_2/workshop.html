@@ -36,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=982b99e0" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom_styles.css?v=933d72f2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -189,7 +190,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../chapter_1/workshop_solutions.html">Workshop 1: Solutions</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_1/exercises.html">Exercises</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="notes.html">Arrays and Plotting</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -428,6 +428,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ballistics">Ballistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
             </nav>
         </div>
@@ -483,7 +484,7 @@ document.write(`
 </div>
 <div class="exercise admonition" id="exercise_2_6">
 
-<p class="admonition-title"><span class="caption-number">Exercise 30 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 32 </span></p>
 <section id="exercise-content">
 <p>The array <code class="docutils literal notranslate"><span class="pre">x</span></code> has <span class="math notranslate nohighlight">\(5\)</span> elements yet the upper limit of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is <span class="math notranslate nohighlight">\(4\)</span>. Why? Try changing the upper limit to <span class="math notranslate nohighlight">\(5\)</span> and see what happens.</p>
 </section>
@@ -509,7 +510,7 @@ document.write(`
 </div>
 <div class="exercise admonition" id="exercise_2_7">
 
-<p class="admonition-title"><span class="caption-number">Exercise 31 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 33 </span></p>
 <section id="exercise-content">
 <p>Calculate the value of <span class="math notranslate nohighlight">\(x_{16}\)</span>. Print the answer as follows:</p>
 <p><code class="docutils literal notranslate"><span class="pre">x[16]:</span> <span class="pre">XXXX</span></code></p>
@@ -526,7 +527,7 @@ y_{i+1} &amp;= y_i + 0.4x_i\quad\mathrm{where}~x_0=y_0=10.
 \end{align*}\end{split}\]</div>
 <div class="exercise admonition" id="exercise_2_8">
 
-<p class="admonition-title"><span class="caption-number">Exercise 32 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 34 </span></p>
 <section id="exercise-content">
 <p>Complete the following code to calculate and plot <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> over the range <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">...</span> <span class="pre">19</span></code>. Plot the resulting arrays on the same figure.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -566,7 +567,7 @@ I_{i+1} &amp;= I_i + bS_iI_i - aI_i.\end{align}\end{split}\]</div>
 <p>A fixed proportion <span class="math notranslate nohighlight">\(a\)</span> of the infected population recovers at each time step. Let’s suppose that 10% of the population recovers each day so that <span class="math notranslate nohighlight">\(a=0.1\)</span>, and assume that our population starts with <span class="math notranslate nohighlight">\(I_0=1000\)</span> infected people.</p>
 <div class="exercise admonition" id="exercise_2_9">
 
-<p class="admonition-title"><span class="caption-number">Exercise 33 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 35 </span></p>
 <section id="exercise-content">
 <p>Calculate (by hand) the first few terms of the sequence. What would you expect the graph <span class="math notranslate nohighlight">\(I_i\)</span> to look like?</p>
 <p>Write Python code to model the number of infected people for <span class="math notranslate nohighlight">\(100\)</span> days. Plot a graph of <span class="math notranslate nohighlight">\(I_i\)</span>.</p>
@@ -578,7 +579,7 @@ I_{i+1} &amp;= I_i + bS_iI_i - aI_i.\end{align}\end{split}\]</div>
 <p>Next we will model the full set of two equations <a class="reference internal" href="#equation-sir-equations">(1)</a>. We’ll assume that parameter values <span class="math notranslate nohighlight">\(a = 0.1\)</span> and <span class="math notranslate nohighlight">\(b = 0.00005\)</span> and the initial populations <span class="math notranslate nohighlight">\(S_0 = 20000\)</span> and <span class="math notranslate nohighlight">\(I_0 = 100\)</span>.</p>
 <div class="exercise admonition" id="exercise_2_10">
 
-<p class="admonition-title"><span class="caption-number">Exercise 34 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 36 </span></p>
 <section id="exercise-content">
 <p>Adapt your code to model the full set of equations with parameter values and initial conditions as described above.</p>
 <p>Hint: You should see that the number of infected people peaks at around 15,000 at about day 15, while the number of susceptible people drops to about zero at about the same time.</p>
@@ -590,7 +591,7 @@ I_{i+1} &amp;= I_i + bS_iI_i - aI_i.\end{align}\end{split}\]</div>
 <p>One of the benefits of modelling is that we can investigate the effect of changing particular parameters. For example, the Government can influence the rate parameter <span class="math notranslate nohighlight">\(b\)</span> through public policy (for example the imposition of social distancing, vaccination or other measures) and so it would like to understand how changing the value of <span class="math notranslate nohighlight">\(b\)</span> affects the outcome of the epidemic.</p>
 <div class="exercise admonition" id="exercise_2_11">
 
-<p class="admonition-title"><span class="caption-number">Exercise 35 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 37 </span></p>
 <section id="exercise-content">
 <p>Experiment with various values of <span class="math notranslate nohighlight">\(b\)</span> to see how it affects the outbreak. Roughly what is the minimum value of <span class="math notranslate nohighlight">\(b\)</span> which results in an epidemic? (We say there is an epidemic if <span class="math notranslate nohighlight">\(I_i\)</span> initially rises to a peak, however small).</p>
 <p>Then <em>on one graph</em> plot <span class="math notranslate nohighlight">\(I_i\)</span> for 4 different values of <span class="math notranslate nohighlight">\(b\)</span> (use a loop!).</p>
@@ -602,13 +603,20 @@ I_{i+1} &amp;= I_i + bS_iI_i - aI_i.\end{align}\end{split}\]</div>
 <h2>Ballistics<a class="headerlink" href="#ballistics" title="Link to this heading">#</a></h2>
 <p>Suppose a cannon located at position <span class="math notranslate nohighlight">\(x = 0, y = 0\)</span> fires a cannonball at an angle <span class="math notranslate nohighlight">\(\theta\)</span> from the horizontal (measured in radians) and speed <span class="math notranslate nohighlight">\(s\)</span> m/s. We’d like to simulate the trajectory of the cannonball as in <a class="reference internal" href="#cannon-fig"><span class="std std-numref">Fig. 1</span></a>.</p>
 <figure class="align-default" id="cannon-fig">
-<a class="reference internal image-reference" href="../_images/cannon.jpg"><img alt="../_images/cannon.jpg" src="../_images/cannon.jpg" style="height: 150px;" />
+<a class="reference internal image-reference" href="../_images/cannon.jpg"><img alt="../_images/cannon.jpg" src="../_images/cannon.jpg" style="height: 250px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 1 </span><span class="caption-text">The trajectory of a cannonball fired at an angle <span class="math notranslate nohighlight">\(\theta\)</span> from the horizontal and speed <span class="math notranslate nohighlight">\(s\)</span> m/s.</span><a class="headerlink" href="#cannon-fig" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>We can model the motion of the cannonball using four variables: The x- and y-positions of the cannonable <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_i\)</span>, and the x- and y-velocities of the cannonball <span class="math notranslate nohighlight">\(u_i\)</span> and <span class="math notranslate nohighlight">\(v_i\)</span>. Assuming a fixed simulation timestep <span class="math notranslate nohighlight">\(\Delta t\)</span>, we update the positions as below:</p>
+<p>We can model the motion of the cannonball using four variables: The x- and y-positions of the cannonable <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_i\)</span>, and the x- and y-velocities of the cannonball <span class="math notranslate nohighlight">\(u_i\)</span> and <span class="math notranslate nohighlight">\(v_i\)</span>.</p>
+<p>The initial positions of <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(y_0\)</span> are both zero, and the initial velocities <span class="math notranslate nohighlight">\(u_0\)</span> and <span class="math notranslate nohighlight">\(v_0\)</span> can be calculated using simple trignometry:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+u_0 = s\cos(\theta)\\
+v_0 = s\sin(\theta)
+\end{split}\]</div>
+<p>Assuming a fixed simulation timestep <span class="math notranslate nohighlight">\(\Delta t\)</span>, we update the positions as below:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align*}
@@ -626,14 +634,120 @@ v_{i+1} &amp;= v_i - g\Delta t
 \end{split}\]</div>
 <div class="exercise admonition" id="exercise_2_12">
 
-<p class="admonition-title"><span class="caption-number">Exercise 36 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 38 </span></p>
 <section id="exercise-content">
-<p>Assuming that <span class="math notranslate nohighlight">\(s = 100\)</span> m/s and that <span class="math notranslate nohighlight">\(\theta= \pi/4\)</span>, write a program which plots a graph of the cannonball’s trajectory.</p>
-<ul class="simple">
-<li><p>Use trigonometry to calculate the initial velocities</p></li>
-<li><p>Make sure that <span class="math notranslate nohighlight">\(y\)</span> does not go below zero (use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement or the <code class="docutils literal notranslate"><span class="pre">max</span></code> function)</p></li>
-<li><p>You’ll need to choose a suitable value for the timestep <span class="math notranslate nohighlight">\(\Delta t\)</span></p></li>
-</ul>
+<p>Assuming that <span class="math notranslate nohighlight">\(s = 100\)</span> m/s, <span class="math notranslate nohighlight">\(\theta= \pi/4\)</span> and <span class="math notranslate nohighlight">\(\Delta t = 0.1\)</span> s, write a program which plots a graph of the cannonball’s trajectory sith <span class="math notranslate nohighlight">\(x_i\)</span> on the x-axis and <span class="math notranslate nohighlight">\(y_i\)</span> on the y-axis.</p>
+<p>If you’re having trouble getting started, take a peek at the partially-complete code template below.</p>
+</section>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Click to view the code template</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">.1</span>
+
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span>
+<span class="n">s</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># Enter your code to initialise</span>
+<span class="c1"># the variables u[0] and v[0]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># Enter your code to</span>
+    <span class="c1"># calculate x[i+1], y[i+1] u[i+1] and v[i+1]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Cannonball trajectory&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="exercise admonition" id="exercise_2_13">
+
+<p class="admonition-title"><span class="caption-number">Exercise 39 </span></p>
+<section id="exercise-content">
+<p>Adapt your solution to the previous question so that the cannonball stops when it hits the ground. You can do this by adding the following update rule:</p>
+<p>If <span class="math notranslate nohighlight">\(y_i + v_i\Delta t \leq 0\)</span> then <span class="math notranslate nohighlight">\(x_{i+1} = x_i\)</span> and  <span class="math notranslate nohighlight">\(y_{i+1} = u_{i+1} = v_{i+1} = 0\)</span>.</p>
+</section>
+</div>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<div class="exercise admonition" id="rate_equations_BZ_reaction_2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 40 </span></p>
+<section id="exercise-content">
+<!-- https://www3.nd.edu/~powers/mcdowell.pdf -->
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Belousov%E2%80%93Zhabotinsky_reaction">Belousov–Zhabotinsky reaction</a>, or BZ reaction, is a chemical reaction which exhibits non-equilbrium dynamics. Under certain conditions, the BZ reaction results in oscillatory behaviour, as demonstrated in <a class="reference external" href="https://www.youtube.com/watch?v=dMF4RjiITGM">this video</a>.</p>
+<p>The BZ reaction can be modelled by the following equations, where <span class="math notranslate nohighlight">\(X_i\)</span> and <span class="math notranslate nohighlight">\(Y_i\)</span> are the concentrations of the two reactants X (red) and Y (colourless) at timestep <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+X_{i+1} &amp;= X_i + k_1-k_2X_i + k_3X_i^2Y_i\\
+Y_{i+1} &amp;= Y_i + k_4X_i - k_3X_i^2Y_i
+\end{align}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(k_1=0.2\)</span>, <span class="math notranslate nohighlight">\(k_2 = 0.4\)</span>, <span class="math notranslate nohighlight">\(k_3 = 0.1\)</span> and <span class="math notranslate nohighlight">\(k_4 = 0.3\)</span>. The initial concentrations are zero and each timestep has a duration of one second.</p>
+<ol class="arabic simple">
+<li><p>Write code to calculate <span class="math notranslate nohighlight">\(X_i\)</span> and <span class="math notranslate nohighlight">\(Y_i\)</span> for the first <span class="math notranslate nohighlight">\(300\)</span> seconds. (Hint: you can use your answer to <a class="reference internal" href="#exercise_2_8"><span class="std std-numref">Exercise 34</span></a> as a template).</p></li>
+<li><p>On on set of axes, plot a graph of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> against time, an in another on another plot <span class="math notranslate nohighlight">\(Y\)</span> against <span class="math notranslate nohighlight">\(X\)</span>. Check that your plots look like the examples below. Notice how both <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> reach a steady-state.</p></li>
+<li><p>Keeping the other parameters fixed, experiment with different values of <span class="math notranslate nohighlight">\(k_1\)</span> between <span class="math notranslate nohighlight">\(0.1\)</span> and <span class="math notranslate nohighlight">\(0.3\)</span>. For what range of values of <span class="math notranslate nohighlight">\(k_1\)</span> does the reaction reach a steady-state, and for which values dos it exhibit sustained oscillations?</p></li>
+</ol>
+</section>
+</div>
+<div class="exercise admonition" id="rate_equations_logistic_map">
+
+<p class="admonition-title"><span class="caption-number">Exercise 41 </span></p>
+<section id="exercise-content">
+<p>A sequence is generated by repeatedly applying the logistic map</p>
+<div class="math notranslate nohighlight">
+\[x_{i+1} = rx_i(1-x_i).\]</div>
+<p>For example, if <span class="math notranslate nohighlight">\(x_0 = 0.2\)</span> and <span class="math notranslate nohighlight">\(r = 2\)</span> then the first three terms of the sequence are</p>
+<div class="math notranslate nohighlight">
+\[0.2, 0.32, 0.4352.\]</div>
+<ol class="arabic simple">
+<li><p>Write a program which calculates an array <code class="docutils literal notranslate"><span class="pre">x</span></code> containing the the first <span class="math notranslate nohighlight">\(50\)</span> terms of the logistic map and plots the result. Check that your plot looks like the plots below for <span class="math notranslate nohighlight">\(r=2.0\)</span>, <span class="math notranslate nohighlight">\(r=3.0\)</span> and <span class="math notranslate nohighlight">\(r=4.0\)</span>.</p></li>
+<li><p>Keeping <span class="math notranslate nohighlight">\(x_0 = 0.2\)</span>, Experiment with different values of <span class="math notranslate nohighlight">\(r\)</span> between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(4\)</span>. By visually inspecting the plot, try to find roughly for which values of <span class="math notranslate nohighlight">\(r\)</span> the terms of the sequence eventually (a) tend towards a fixed value (b) alternate between two values (c) jump around chaotically.</p></li>
+<li><p>For <span class="math notranslate nohighlight">\(x_0 = 0.2\)</span> and <span class="math notranslate nohighlight">\(r = 3\)</span>, use <code class="docutils literal notranslate"><span class="pre">np.max(x[-10:])</span></code> and <code class="docutils literal notranslate"><span class="pre">np.min(x[-10:])</span></code> to calculate the maximum and minimum values of the last 10 elements of <code class="docutils literal notranslate"><span class="pre">x</span></code> (to understand this syntax, look up ‘array slicing’ in this week’s notes). Check that your answers correspond to the plots below for <span class="math notranslate nohighlight">\(r=2.0\)</span>, <span class="math notranslate nohighlight">\(r=3.0\)</span> and <span class="math notranslate nohighlight">\(r=4.0\)</span>.</p></li>
+<li><p>(Harder) Make a plot with <code class="docutils literal notranslate"><span class="pre">r</span></code> on the x-axis and the maximum and minimum value of the last 10 elements of <code class="docutils literal notranslate"><span class="pre">x</span></code> on  the y-axis. Your answer should look like the final plot below.</p></li>
+</ol>
+</section>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/6744c0c6292b21d5c6978cdfc0d18ea78c419bede2812905d7059fadb2f9bc1e.png" src="../_images/6744c0c6292b21d5c6978cdfc0d18ea78c419bede2812905d7059fadb2f9bc1e.png" />
+<img alt="../_images/3fb7052e8edb2748585088e422845e488ac18ec4407610f529a831af4322e1d2.png" src="../_images/3fb7052e8edb2748585088e422845e488ac18ec4407610f529a831af4322e1d2.png" />
+</div>
+</div>
+<div class="exercise admonition" id="cannonball_2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 42 </span> (Motion of cannonball with air resistance)</p>
+<section id="exercise-content">
+<p>Suppose a cannon located at position <span class="math notranslate nohighlight">\(x = 0, y = 0\)</span> fires a cannonball at an angle <span class="math notranslate nohighlight">\(\theta\)</span> from the horizontal (measured in radians) and speed <span class="math notranslate nohighlight">\(s\mathrm{~m/s}\)</span> (<a class="reference internal" href="#cannon-fig"><span class="std std-numref">Fig. 1</span></a>).</p>
+<p>We can model the motion of the cannonball using four variables: The x- and y-positions of the cannonball <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_i\)</span>, and the x- and y-velocities of the cannonball <span class="math notranslate nohighlight">\(u_i\)</span> and <span class="math notranslate nohighlight">\(v_i\)</span> where <span class="math notranslate nohighlight">\(i\)</span> is the timestep. At each timestep, we update the variables as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+x_{i+1} &amp;= x_i + u_i\Delta t \\
+y_{i+1} &amp;= y_i + v_i\Delta t\\
+u_{i+1} &amp;= u_i - du_i\Delta t\\
+v_{i+1} &amp;= v_i - g\Delta t - dv_i\Delta t
+\end{align*}
+\end{split}\]</div>
+<p>unless <span class="math notranslate nohighlight">\(y_i + v_i\Delta t \leq 0\)</span>, in which case <span class="math notranslate nohighlight">\(x_{i+1} = x_i\)</span> and  <span class="math notranslate nohighlight">\(y_{i+1} = u_{i+1} = v_{i+1} = 0\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(g=9.81\mathrm{~m/s}\)</span> is gravitational acceleration, <span class="math notranslate nohighlight">\(d = 0.25\mathrm{~s}^{-1}\)</span> is a constant representing air resistance, and the time increment <span class="math notranslate nohighlight">\(\Delta t = 0.2\mathrm{~s}\)</span>.</p>
+<p><strong>Part 1</strong></p>
+<p>a. For <span class="math notranslate nohighlight">\(\theta = \pi/6\)</span> and <span class="math notranslate nohighlight">\(s = 80\mathrm{~m/s}\)</span> write a Python program which calculates four arrays <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">u</span></code> and <code class="docutils literal notranslate"><span class="pre">v</span></code> representing the x- and y-positions and x- and y-velocities respectively for the first 60 timesteps.</p>
+<p>b. Create a figure showing <code class="docutils literal notranslate"><span class="pre">y</span></code> against <code class="docutils literal notranslate"><span class="pre">x</span></code>. Add a title and axis labels.</p>
+<p>c. Create an array <code class="docutils literal notranslate"><span class="pre">t</span></code> where <code class="docutils literal notranslate"><span class="pre">t[i]</span></code> is the time in seconds corresponding to timestep <code class="docutils literal notranslate"><span class="pre">i</span></code>. Plot <code class="docutils literal notranslate"><span class="pre">x</span></code> against <code class="docutils literal notranslate"><span class="pre">t</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> against <code class="docutils literal notranslate"><span class="pre">t</span></code> on the same figure. Add a title and axis labels and use <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> to add a legend to your plot.</p>
+<p>d. Print the horizontal distance travelled by the cannonball (i.e. the x-coordinate of the cannonball when it hits the ground).</p>
+<p><strong>Part 2</strong></p>
+<p>a. For fifty values of <span class="math notranslate nohighlight">\(\theta\)</span> from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(\pi/2\)</span>, and all other parameter values the same as Question 1, calculate the horizontal distance travelled by the cannonball and plot a graph of this value against <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>b. Use the function <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> to determine the angle which results in the maximum horizontal distance.</p>
 </section>
 </div>
 </section>
@@ -714,6 +828,7 @@ v_{i+1} &amp;= v_i - g\Delta t
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ballistics">Ballistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
   </nav></div>
 
