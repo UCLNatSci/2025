@@ -429,6 +429,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8">Exercise 8</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9">Exercise 9</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exericse-10">Exericse 10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11">Exercise 11</a></li>
 </ul>
             </nav>
         </div>
@@ -539,7 +540,7 @@ But <code class="docutils literal notranslate"><span class="pre">x</span></code>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x22876b825d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x193280ce5d0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/456f2103ef8d1a0be6f89dc9d4b814b3d5319ffdd79b41e1012291076c66a17c.png" src="../_images/456f2103ef8d1a0be6f89dc9d4b814b3d5319ffdd79b41e1012291076c66a17c.png" />
@@ -689,7 +690,7 @@ and so on…</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x22875555550&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x19327a65160&gt;
 </pre></div>
 </div>
 <img alt="../_images/ecd3e4e3b52bb39b300d7846eed3960ac2ea7e98ae54e6db8a91be729fa09ea6.png" src="../_images/ecd3e4e3b52bb39b300d7846eed3960ac2ea7e98ae54e6db8a91be729fa09ea6.png" />
@@ -790,6 +791,95 @@ and so on…</p></li>
 </section>
 <section id="exericse-10">
 <h2>Exericse 10<a class="headerlink" href="#exericse-10" title="Link to this heading">#</a></h2>
+<p>1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1"># change this value to get the three plots</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># Create an array and set the initial value x[0]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.2</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># set the y axis limits</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;timestep&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Time course of the logistic map&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Time course of the logistic map&#39;)
+</pre></div>
+</div>
+<img alt="../_images/9fd4d9099d13786d627af6d643c16aa1b96a69b4f939f16c2af560dbecf1cb7b.png" src="../_images/9fd4d9099d13786d627af6d643c16aa1b96a69b4f939f16c2af560dbecf1cb7b.png" />
+</div>
+</div>
+<p>2.</p>
+<p>You should find that for <span class="math notranslate nohighlight">\(r\)</span> less than about <span class="math notranslate nohighlight">\(2.9\)</span>, the sequence tends towards a fixed value. For <span class="math notranslate nohighlight">\(r\)</span> between about <span class="math notranslate nohighlight">\(2.9\)</span> and <span class="math notranslate nohighlight">\(3.4\)</span> the sequence alternates between two values. As <span class="math notranslate nohighlight">\(r\)</span> increases beyong <span class="math notranslate nohighlight">\(3.5\)</span>, the sequence becomes periodic with increasing period and then becomes very chaotic.</p>
+<p>3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:]),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6308190317243676 0.6993163049657775
+</pre></div>
+</div>
+</div>
+</div>
+<p>4.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># number of values of r</span>
+<span class="n">r_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="c1"># Array to store values of r</span>
+<span class="n">maxval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="c1"># array to store maximum values</span>
+<span class="n">minval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="c1"># array to store minimum values</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># Run the simulation once for each value of r</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">r_array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> 
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.2</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="n">maxval</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span>
+    <span class="n">minval</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_array</span><span class="p">,</span> <span class="n">maxval</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;maximum of last 10 values&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_array</span><span class="p">,</span> <span class="n">minval</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;minimum of last 10 values&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Maximum and minimum of last 10 values against r&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/efb2b50e705b31c0e5334c55285e4bdc0cfdafb76b5e79330f92881cbe73625c.png" src="../_images/efb2b50e705b31c0e5334c55285e4bdc0cfdafb76b5e79330f92881cbe73625c.png" />
+</div>
+</div>
+</section>
+<section id="exercise-11">
+<h2>Exercise 11<a class="headerlink" href="#exercise-11" title="Link to this heading">#</a></h2>
 <p><strong>Part 1</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1006,6 +1096,7 @@ Angle that maximises horizontal distance: 0.5129130863003744 radians,  29.387755
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8">Exercise 8</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9">Exercise 9</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exericse-10">Exericse 10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11">Exercise 11</a></li>
 </ul>
   </nav></div>
 

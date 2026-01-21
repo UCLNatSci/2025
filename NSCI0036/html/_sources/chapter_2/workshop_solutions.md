@@ -230,7 +230,6 @@ plt.title("Cannonball trajectory")
 
 ## Exercise 8
 
-
 ```{code-cell} ipython3
 n = 200
 g = 9.81
@@ -269,6 +268,76 @@ plt.title("Cannonball trajectory")
 See separate document.
 
 ## Exericse 10
+
+1\.
+
+```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = 3.0 # change this value to get the three plots
+n = 50
+
+# Create an array and set the initial value x[0]
+x = np.zeros(n)
+x[0] = 0.2
+
+for i in range(n-1):
+    x[i+1] = r*x[i]*(1-x[i])
+
+plt.plot(x)
+plt.ylim(0, 1) # set the y axis limits
+plt.xlabel("timestep")
+plt.ylabel("x")
+plt.title("Time course of the logistic map")
+```
+
+2\.
+
+You should find that for $r$ less than about $2.9$, the sequence tends towards a fixed value. For $r$ between about $2.9$ and $3.4$ the sequence alternates between two values. As $r$ increases beyong $3.5$, the sequence becomes periodic with increasing period and then becomes very chaotic.
+
+3\. 
+
+```{code-cell} ipython3
+print(np.min(x[-10:]), np.max(x[-10:]))
+```
+
+4\.
+
+```{code-cell} ipython3import numpy as np
+import matplotlib.pyplot as plt
+
+
+N = 100 # number of values of r
+r_array = np.linspace(0, 4, N) # Array to store values of r
+maxval = np.zeros(N) # array to store maximum values
+minval = np.zeros(N) # array to store minimum values
+
+n = 50
+
+# Run the simulation once for each value of r
+for j in range(N):
+    r = r_array[j] 
+    x = np.zeros(n)
+    x[0] = 0.2
+
+    for i in range(n-1):
+        x[i+1] = r*x[i]*(1-x[i])
+
+    maxval[j] = np.max(x[-10:])
+    minval[j] = np.min(x[-10:])
+
+plt.xlabel("r")
+
+plt.plot(r_array, maxval, label="maximum of last 10 values")
+plt.plot(r_array, minval, label="minimum of last 10 values")
+
+plt.legend();
+
+plt.title("Maximum and minimum of last 10 values against r");
+```
+
+## Exercise 11
 
 **Part 1**
 

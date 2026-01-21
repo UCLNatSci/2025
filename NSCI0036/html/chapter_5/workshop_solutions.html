@@ -497,7 +497,7 @@ Then to get the subarray containing the <code class="docutils literal notranslat
 </div>
 <div class="solution admonition" id="chapter_5/workshop_solutions-solution-0">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="workshop.html#exercise_4_7"> Exercise 68</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="workshop.html#exercise_4_7"> Exercise 69</a></p>
 <section id="solution-content">
 <p>To adapt our function we need to change the for loop to cover the full range from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">n</span></code>, and then replace the lower limit with <code class="docutils literal notranslate"><span class="pre">max(i-k,</span> <span class="pre">0)</span></code> and the upper limit with <code class="docutils literal notranslate"><span class="pre">min(i+k+1,</span> <span class="pre">n)</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">moving_average</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
@@ -518,7 +518,7 @@ Then to get the subarray containing the <code class="docutils literal notranslat
 </div>
 <div class="solution admonition" id="chapter_5/workshop_solutions-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="workshop.html#exercise_4_8"> Exercise 69</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="workshop.html#exercise_4_8"> Exercise 70</a></p>
 <section id="solution-content">
 <p>First we need to calculate the moving averages</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the moving averages</span>
@@ -543,7 +543,7 @@ Then to get the subarray containing the <code class="docutils literal notranslat
 </div>
 <div class="solution admonition" id="chapter_5/workshop_solutions-solution-2">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="workshop.html#exercise_4_9"> Exercise 70</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="workshop.html#exercise_4_9"> Exercise 71</a></p>
 <section id="solution-content">
 <p>To find the 1-moving average of the cell at position <code class="docutils literal notranslate"><span class="pre">i,</span> <span class="pre">j</span></code> we need to take the average of all the cells in the rows <code class="docutils literal notranslate"><span class="pre">i-1</span></code> up to and including <code class="docutils literal notranslate"><span class="pre">i+1</span></code>, and in the columns <code class="docutils literal notranslate"><span class="pre">j-1</span></code> up to and including <code class="docutils literal notranslate"><span class="pre">j+1</span></code>. Remember we need to add 1 to the final index to make sure we get the whole 3-by-3 array.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
@@ -566,7 +566,7 @@ Then to get the subarray containing the <code class="docutils literal notranslat
 </div>
 <div class="solution admonition" id="chapter_5/workshop_solutions-solution-3">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="workshop.html#exercise_4_10"> Exercise 71</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="workshop.html#exercise_4_10"> Exercise 72</a></p>
 <section id="solution-content">
 <p>First we can load the image and retrieve the shape of the array - this will tell us what size our new array should be.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;falling_cat.txt&quot;</span><span class="p">)</span>
@@ -588,7 +588,7 @@ Then to get the subarray containing the <code class="docutils literal notranslat
 </div>
 <div class="solution admonition" id="chapter_5/workshop_solutions-solution-4">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="workshop.html#exercise_4_11"> Exercise 72</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="workshop.html#exercise_4_11"> Exercise 73</a></p>
 <section id="solution-content">
 <p>Let’s write a function that calculates the k-moving average of the 2d array <code class="docutils literal notranslate"><span class="pre">x</span></code>. We need to adjust the limits of the for loops and the indices of the sub-array - just like we did in 1 dimension! We will leave the zero padding so the for loops should go from row <code class="docutils literal notranslate"><span class="pre">k</span></code> to <code class="docutils literal notranslate"><span class="pre">n-k-1</span></code> and from column <code class="docutils literal notranslate"><span class="pre">k</span></code> to <code class="docutils literal notranslate"><span class="pre">m-k-1</span></code>. The sub-array should contain the <code class="docutils literal notranslate"><span class="pre">2k+1</span></code> by <code class="docutils literal notranslate"><span class="pre">2k+1</span></code> array centred at <code class="docutils literal notranslate"><span class="pre">i,</span> <span class="pre">j</span></code>, which goes from row <code class="docutils literal notranslate"><span class="pre">i-k</span></code> to <code class="docutils literal notranslate"><span class="pre">i+k</span></code> and from column <code class="docutils literal notranslate"><span class="pre">j-k</span></code> to <code class="docutils literal notranslate"><span class="pre">j+k</span></code>. Remember to add 1 to the upper limits!</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">moving_average_2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
