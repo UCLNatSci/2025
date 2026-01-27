@@ -102,11 +102,6 @@ print("Population after", i, "hours:", population)
 
 displays the value of `population` and `i`.
 
-
-
-
-
-
 +++
 
 ## Arithmetic

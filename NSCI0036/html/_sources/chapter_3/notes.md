@@ -37,13 +37,14 @@ help(round)
 2. Use `help` to find out what the function `abs` does.
 :::
 
-:::{solution} exercise_3_1
+:::{solution-start} exercise_3_1
 :class: dropdown
 
 First, let's see what happens when we call `round(-0.5)`.
-``` 
-x = round(-0.5)
+:::
 
+```{code-cell} ipython3
+x = round(-0.5)
 print(x)
 ```
 We see that -0.5 is rounded up to zero.
@@ -53,6 +54,8 @@ Now let's find out what `abs` does
 help(abs)
 ```
 `abs(x)` will return the absolute value of `x`.
+
+:::{solution-end}
 :::
 
 +++
@@ -196,8 +199,9 @@ print(number_of_digits_2(-999)) # should print 3
 ```
 :::
 
-:::{solution} exercise_3_3
+:::{solution-start} exercise_3_3
 :class: dropdown
+:::
 
 We can use the fact that a negative number $-n$ has the same number of digits as the positive number $n$, using the `abs` function in the while loop to check whether the absolute value of the input is greater than 1. 
 
@@ -216,7 +220,7 @@ print(number_of_digits_2(0.5))
 print(number_of_digits_2(-0.5)) 
 print(number_of_digits_2(-999)) 
 ```
-
+:::{solution-end}
 :::
 
 ## Combining Functions and Loops

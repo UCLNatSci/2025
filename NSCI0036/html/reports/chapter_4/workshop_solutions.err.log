@@ -1,0 +1,109 @@
+Traceback (most recent call last):
+  File "C:\Users\ucqspbr\dev\jbenv\Lib\site-packages\jupyter_core\utils\__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ucqspbr\dev\jbenv\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ucqspbr\dev\jbenv\Lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ucqspbr\dev\jbenv\Lib\site-packages\jupyter_core\utils\__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\ucqspbr\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\ucqspbr\dev\jbenv\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "C:\Users\ucqspbr\dev\jbenv\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\ucqspbr\dev\jbenv\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import matplotlib.pyplot as plt
+
+freq_french = [7.60, 0.96, 3.39, 4.08, 14.47, 1.12, 1.18, 0.93, 7.21, 0.30, 0.16, 5.86, 2.78, 7.32, 5.39, 2.98, 0.85, 6.86, 7.98, 7.11, 5.55, 1.29, 0.08, 0.43, 0.34, 0.10]
+s = sum(freq_french)
+# ensure the sum is 1
+for i in range(26):
+    freq_french[i] /= s
+
+freq_eng = [8.34, 1.54, 2.73, 4.14, 12.60, 2.03, 1.92, 6.11, 6.71, 0.23, 0.87, 4.24, 2.53, 6.80, 7.70, 1.66, 0.09, 5.68, 6.11, 9.37, 2.85, 1.06, 2.34, 0.20, 2.04, 0.06]
+s = sum(freq_eng)
+# ensure the sum is 1
+for i in range(26):
+    freq_eng[i] /= s
+
+
+with open("french.txt") as f:
+     text = f.read()
+
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+counts = [0] * 26 # this syntax creates a list containing 26 zeros
+
+text = text.lower()
+for c in text:
+    i = alphabet.find(c)
+    if i > -1:
+        counts[i] += 1
+
+s = sum(counts)
+
+for i in range(26):
+    counts[i] = counts[i] / s
+
+plt.figure(figsize=(5,3))
+plt.bar(list(alphabet), counts)
+plt.ylabel("frequency")
+
+sim_eng = 0
+sim_french = 0
+for i in range(26):
+    sim_eng += (freq_eng[i] - counts[i])**2
+    sim_french += (freq_french[i] - counts[i])**2
+    
+m = min(sim_eng, sim_french)
+if m == sim_eng:
+    print("English")
+elif m == sim_french:
+    print("French")
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[8][39m[32m, line 16[39m
+[32m     12[39m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m([32m26[39m):
+[32m     13[39m     freq_eng[i] /= s
+[32m---> [39m[32m16[39m [38;5;28;01mwith[39;00m [38;5;28;43mopen[39;49m[43m([49m[33;43m"[39;49m[33;43mfrench.txt[39;49m[33;43m"[39;49m[43m)[49m [38;5;28;01mas[39;00m f:
+[32m     17[39m      text = f.read()
+[32m     19[39m alphabet = [33m"[39m[33mabcdefghijklmnopqrstuvwxyz[39m[33m"[39m
+
+[36mFile [39m[32m~\dev\jbenv\Lib\site-packages\IPython\core\interactiveshell.py:343[39m, in [36m_modified_open[39m[34m(file, *args, **kwargs)[39m
+[32m    336[39m [38;5;28;01mif[39;00m file [38;5;129;01min[39;00m {[32m0[39m, [32m1[39m, [32m2[39m}:
+[32m    337[39m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[32m    338[39m         [33mf[39m[33m"[39m[33mIPython won[39m[33m'[39m[33mt let you open fd=[39m[38;5;132;01m{[39;00mfile[38;5;132;01m}[39;00m[33m by default [39m[33m"[39m
+[32m    339[39m         [33m"[39m[33mas it is likely to crash IPython. If you know what you are doing, [39m[33m"[39m
+[32m    340[39m         [33m"[39m[33myou can use builtins[39m[33m'[39m[33m open.[39m[33m"[39m
+[32m    341[39m     )
+[32m--> [39m[32m343[39m [38;5;28;01mreturn[39;00m [43mio_open[49m[43m([49m[43mfile[49m[43m,[49m[43m [49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+
+[31mFileNotFoundError[39m: [Errno 2] No such file or directory: 'french.txt'
+
