@@ -1,6 +1,6 @@
 # Introduction
 
-This workbook contains all the required material for the module NSCI0036. Before starting work you need to set up your Cocalc account by following the instructions in the section [Getting Started](getting-started).
+This workbook contains all the required material for the module NSCI0036.
 
 ## How to Interact with the Material
 

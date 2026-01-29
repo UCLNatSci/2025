@@ -51,17 +51,17 @@ VWX
 
 A **list** is a Python data type that contains a sequence of values. The values can be of any type, but in this workshop we will mainly be working with lists of strings.
 
-We can use indexing to access items,
+Use indexing to access items:
 
 ```{code-cell} python3
 data = ["ABC", "DEF", "GHI", "JKI", "LMN"]
 print(data[0])
 ```
 
-and the `list.index` function to find the index of a specific item:
+Conversely, use the `list.index` function to find the index of a specific item:
 
 ```{code-cell} python3
-i = list.index("JKI")
+i = data.index("JKI")
 print(i)
 ```
 
